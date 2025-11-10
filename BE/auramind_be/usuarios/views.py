@@ -1,8 +1,13 @@
 from django.shortcuts import render
-from .models import Usuario
-from .serializers import UsuarioSerializer
+from .models import Usuario,Paciente
+from .serializers import UsuarioSerializer,PacienteSerializer
 from rest_framework.generics import ListCreateAPIView
 
 class UsuarioCreateView(ListCreateAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
+
+class PacienteCreateView(ListCreateAPIView):
+    queryset = Paciente.objects.all()
+    serializer_class = PacienteSerializer
+
