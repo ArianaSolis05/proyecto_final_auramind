@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser
 
 class Usuario(AbstractUser):
     ROL_OPCIONES = (
-        ("usuario","Usuario"),
         ("psicologo","Psicologo"),
         ("paciente","Paciente"),
         ("admin","Admin")
