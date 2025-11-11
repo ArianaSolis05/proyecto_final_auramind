@@ -1,6 +1,14 @@
+import React from 'react'
+import Login from '../components/Login'
+
 const Inicio = () =>{
+
     return(
-        <h1>HOLA</h1>
+        <div>
+
+            <Login/>
+
+        </div>
     )
 }
 export default Inicio
