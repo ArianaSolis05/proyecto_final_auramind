@@ -5,3 +5,4 @@ urlpatterns = [
     path("crear-usuario/",UsuarioCreateView.as_view()),
     path("crear-paciente/",PacienteCreateView.as_view()),
 ]
+
