@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from .models import Usuario,Paciente
+from .models import Usuario,Paciente,Psicologo
 
 
 class UsuarioSerializer(ModelSerializer):
@@ -10,4 +10,9 @@ class UsuarioSerializer(ModelSerializer):
 class PacienteSerializer(ModelSerializer):
     class Meta:
         model = Paciente
+        fields = "__all__"
+
+class PsicologoSerializer(ModelSerializer):
+    class Meta:
+        model = Psicologo
         fields = "__all__"

@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Usuario,Paciente
-from .serializers import UsuarioSerializer,PacienteSerializer
+from .models import Usuario,Paciente,Psicologo
+from .serializers import UsuarioSerializer,PacienteSerializer,PsicologoSerializer
 from rest_framework.generics import ListCreateAPIView
 
 class UsuarioCreateView(ListCreateAPIView):
@@ -10,4 +10,8 @@ class UsuarioCreateView(ListCreateAPIView):
 class PacienteCreateView(ListCreateAPIView):
     queryset = Paciente.objects.all()
     serializer_class = PacienteSerializer
+
+class PsicologoCreateView(ListCreateAPIView):
+    queryset = Psicologo.objects.all()
+    serializer_class = PsicologoSerializer
 
