@@ -40,7 +40,7 @@ function Login() {
 
     <p class="login-foot">
       ¿No tienes cuenta?
-      <a href="/Formulario" class="login-link">Regístrate</a>
+      <a href="/crear-usuario" class="login-link">Regístrate</a>
     </p>
   </form>
 </div>

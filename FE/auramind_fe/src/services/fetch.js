@@ -1,7 +1,7 @@
 
 async function postDatos(obj, endpoint) {
   try {
-    const peticion = await fetch(`http://localhost:3001/${endpoint}`, {
+    const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -15,3 +15,4 @@ async function postDatos(obj, endpoint) {
     console.error(error);
   }
 }
+export {postDatos}

@@ -1,7 +1,4 @@
-
-
 import { useState, useEffect } from "react";
-import "../styles/Estilos.css";
 import { postDatos } from "../services/fetch.js";
 
 import { useNavigate } from "react-router-dom";
@@ -36,20 +33,20 @@ function Registro() {
       setMensaje("Las contraseñas deben ser iguales");
       return;
     }
-    const user = {
-      nameUser: user,
-      emailUser: email,
-      claveUser: password,
-      fechaNacimientoUser: fecha_nacimiento,
-      cedulaUser: cedula,
-      nacionalidadUser: nacionalidad,
-      generoUser: genero,
-      nombreUser: nombre,
-      apellidoUser: apellido,
-      tipoUsuario: "usuario",
-      fechaRegistro: `${fechaActual.getDate()}/${fechaActual.getMonth()}/${fechaActual.getFullYear()}`,
+    const newUser = {
+      username: user,
+      email: email,
+      password: password,
+      fecha_nacimiento: fecha_nacimiento,
+      cedula: cedula,
+      nacionalidad: nacionalidad,
+      genero: genero,
+      first_name: nombre,
+      last_name: apellido,
+      rol: "paciente",
+      telefono: "2000"
     };
-    const respuesta = await postDatos(user, "usuarios");
+    const respuesta = await postDatos(newUser, "usuarios/crear-usuario/");
     setMensaje("Su registro de usuario fue exitoso");
     console.log(respuesta);
     navigate("/");
