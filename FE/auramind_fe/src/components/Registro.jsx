@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { postDatos } from "../services/fetch.js";
+import { useNavigate, Link } from "react-router-dom";
+import "../Estilos/Registro.css";
 
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-
-//Utlizamos el useState para poder modificar el estado del componente
 function Registro() {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
@@ -16,19 +14,16 @@ function Registro() {
   const [genero, setGenero] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
-
-
-
-
   const [mensaje, setMensaje] = useState("");
+
   const navigate = useNavigate();
   const fechaActual = new Date();
+
   async function registroExitoso() {
     if (nombre == "" || email === "" || password === "") {
       setMensaje("Llene los espacios por favor");
       return;
     }
-    //Validacion de que al registrar las contraseñas sean las mismas
     if (password != confirmpassword) {
       setMensaje("Las contraseñas deben ser iguales");
       return;
@@ -52,8 +47,6 @@ function Registro() {
     navigate("/");
   }
 
-//Utilizamos el useEffect para darle un delay de 1.5s al mensaje, ya sea de rellenar espacios o de registro exitoso
-
   useEffect(() => {
     setTimeout(() => {
       setMensaje("");
@@ -61,106 +54,104 @@ function Registro() {
   }, [mensaje]);
 
   return (
-    <div>
-      <div class="registro-container">
-        <h2>Registro de Usuario</h2>
-        <form class="formulario-registro">
-          <label for="">Nombre de Usuario</label>
+    <div className="register-wrapper">
+      <div className="register-container">
+        <h2 className="register-title">Registro de Usuario</h2>
+        <form className="register-form">
+          <label className="register-label">Nombre de Usuario</label>
           <input
             type="text"
-            id=""
+            className="register-input"
             value={user}
             onChange={(e) => setUser(e.target.value)}
           />
 
-          <label for="">Correo electrónico</label>
+          <label className="register-label">Correo electrónico</label>
           <input
             type="email"
-            id=""
+            className="register-input"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <label for="">Contraseña</label>
+          <label className="register-label">Contraseña</label>
           <input
             type="password"
-            id=""
+            className="register-input"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <label for="">Confirmar contraseña</label>
+          <label className="register-label">Confirmar contraseña</label>
           <input
-            type="pass"
-            id=""
+            type="password"
+            className="register-input"
             value={confirmpassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
 
-          
-          <label for="">Fecha de Nacimiento</label>
+          <label className="register-label">Fecha de Nacimiento</label>
           <input
             type="date"
-            id=""
+            className="register-input"
             value={fecha_nacimiento}
             onChange={(e) => setFecha_Nacimiento(e.target.value)}
           />
 
-          
-          <label for="">DNI</label>
+          <label className="register-label">DNI</label>
           <input
             type="text"
-            id=""
+            className="register-input"
             value={cedula}
             onChange={(e) => setCedula(e.target.value)}
           />
 
-          
-          <label for="">Nacionalidad</label>
+          <label className="register-label">Nacionalidad</label>
           <input
             type="text"
-            id=""
+            className="register-input"
             value={nacionalidad}
             onChange={(e) => setNacionalidad(e.target.value)}
           />
 
-          
-          <label for="">Genero</label>
+          <label className="register-label">Género</label>
           <input
             type="text"
-            id=""
+            className="register-input"
             value={genero}
             onChange={(e) => setGenero(e.target.value)}
           />
 
-          
-          <label for="">Nombre</label>
+          <label className="register-label">Nombre</label>
           <input
             type="text"
-            id=""
+            className="register-input"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
           />
 
-          
-          <label for="">Apellido</label>
+          <label className="register-label">Apellido</label>
           <input
             type="text"
-            id=""
+            className="register-input"
             value={apellido}
             onChange={(e) => setApellido(e.target.value)}
           />
 
-          <button type="button" onClick={registroExitoso}>
+          <button
+            type="button"
+            className="register-btn"
+            onClick={registroExitoso}
+          >
             Registrarse
           </button>
 
-          <Link to={"/"} style={{ color: "white", fontSize: "15px" }}>
+          <Link to={"/"} className="register-link">
             Ir a inicio
           </Link>
         </form>
       </div>
-      <p>{mensaje}</p>
+      <p className="register-message">{mensaje}</p>
     </div>
   );
 }

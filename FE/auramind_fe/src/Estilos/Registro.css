@@ -1,0 +1,166 @@
+/* Registro.css - reemplaza el anterior */
+
+/* Reset y caja */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Fondo y centrado principal */
+.register-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #cfeee8 0%, #e9f1ff 100%);
+  padding: 20px; /* espacio para evitar recorte en móviles */
+}
+
+/* Tarjeta */
+.register-container {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(15, 40, 40, 0.08);
+  padding: 28px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* Levanta ligeramente en hover (útil en desktop) */
+.register-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(15, 40, 40, 0.10);
+}
+
+/* Título */
+.register-title {
+  margin: 0 0 12px 0;
+  font-size: 1.6rem;
+  color: #214d4a;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Formulario: columnas y espaciado */
+.register-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 12px;
+  grid-row-gap: 10px;
+  margin-top: 6px;
+}
+
+/* Para etiquetas que deben ocupar toda la fila, aplicaremos una clase visual
+   pero como no quieres modificar el HTML, usaremos selectores para inputs date, etc. */
+.register-form > .register-label,
+.register-form > .register-input,
+.register-form > .register-btn,
+.register-form > .register-link {
+  /* por defecto cada elemento ocupa 1 columna */
+}
+
+/* Hacemos que los label precedan a su input visualmente: 
+   agrupamos label + input ocupando la misma columna usando display:block en label */
+.register-form label.register-label {
+  display: block;
+  font-size: 0.92rem;
+  color: #2f5856;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Inputs: ocupan el ancho de su columna */
+.register-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d6e6e3;
+  background: #fbfdfc;
+  font-size: 0.95rem;
+  color: #213c3b;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+/* Focus */
+.register-input:focus {
+  outline: none;
+  border-color: #59b9a9;
+  box-shadow: 0 6px 18px rgba(89, 185, 169, 0.12);
+}
+
+/* Hacer que ciertos campos (fecha, DNI, etc.) ocupen 2 columnas para mejor layout.
+   Seleccionamos por tipo de input para no tocar HTML. */
+.register-form input[type="date"],
+.register-form input[type="text"]:nth-of-type(5),
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  /* nothing here — kept for clarity */
+}
+
+/* Forzamos que los últimos inputs (Nombre, Apellido) ocupen 1 columna cada uno,
+   pero el botón y el link ocuparán 2 columnas (fila completa). */
+.register-form .register-btn {
+  grid-column: 1 / -1; /* ocupa toda la fila */
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, #5fc0ad 0%, #46a394 100%);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 6px;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.register-form .register-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.98);
+}
+
+/* Link de ir a inicio también ocupa toda la fila */
+.register-form .register-link {
+  grid-column: 1 / -1;
+  display: inline-block;
+  margin-top: 10px;
+  text-align: center;
+  color: #46a394;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Mensaje debajo de la tarjeta */
+.register-message {
+  margin-top: 12px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Media queries: en pantallas pequeñas apilamos todo en 1 columna y reducimos padding */
+@media (max-width: 600px) {
+  .register-container {
+    max-width: 420px;
+    padding: 20px;
+  }
+
+  .register-form {
+    grid-template-columns: 1fr; /* una columna */
+  }
+
+  .register-form .register-btn {
+    padding: 11px;
+  }
+
+  .register-title {
+    font-size: 1.4rem;
+  }
+}
