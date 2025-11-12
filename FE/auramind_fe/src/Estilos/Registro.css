@@ -1,6 +1,3 @@
-/* Registro.css - reemplaza el anterior */
-
-/* Reset y caja */
 *,
 *::before,
 *::after {
@@ -13,17 +10,15 @@ html, body, #root {
   font-family: "Poppins", sans-serif;
 }
 
-/* Fondo y centrado principal */
 .register-wrapper {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #cfeee8 0%, #e9f1ff 100%);
-  padding: 20px; /* espacio para evitar recorte en móviles */
+  padding: 20px;
 }
 
-/* Tarjeta */
 .register-container {
   width: 100%;
   max-width: 480px;
@@ -34,13 +29,11 @@ html, body, #root {
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-/* Levanta ligeramente en hover (útil en desktop) */
 .register-container:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(15, 40, 40, 0.10);
+  box-shadow: 0 12px 36px rgba(15, 40, 40, 0.1);
 }
 
-/* Título */
 .register-title {
   margin: 0 0 12px 0;
   font-size: 1.6rem;
@@ -49,7 +42,6 @@ html, body, #root {
   font-weight: 700;
 }
 
-/* Formulario: columnas y espaciado */
 .register-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -58,17 +50,6 @@ html, body, #root {
   margin-top: 6px;
 }
 
-/* Para etiquetas que deben ocupar toda la fila, aplicaremos una clase visual
-   pero como no quieres modificar el HTML, usaremos selectores para inputs date, etc. */
-.register-form > .register-label,
-.register-form > .register-input,
-.register-form > .register-btn,
-.register-form > .register-link {
-  /* por defecto cada elemento ocupa 1 columna */
-}
-
-/* Hacemos que los label precedan a su input visualmente: 
-   agrupamos label + input ocupando la misma columna usando display:block en label */
 .register-form label.register-label {
   display: block;
   font-size: 0.92rem;
@@ -77,7 +58,6 @@ html, body, #root {
   margin-bottom: 6px;
 }
 
-/* Inputs: ocupan el ancho de su columna */
 .register-input {
   width: 100%;
   padding: 10px 12px;
@@ -89,26 +69,14 @@ html, body, #root {
   transition: box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
-/* Focus */
 .register-input:focus {
   outline: none;
   border-color: #59b9a9;
   box-shadow: 0 6px 18px rgba(89, 185, 169, 0.12);
 }
 
-/* Hacer que ciertos campos (fecha, DNI, etc.) ocupen 2 columnas para mejor layout.
-   Seleccionamos por tipo de input para no tocar HTML. */
-.register-form input[type="date"],
-.register-form input[type="text"]:nth-of-type(5),
-.register-form input[type="email"],
-.register-form input[type="password"] {
-  /* nothing here — kept for clarity */
-}
-
-/* Forzamos que los últimos inputs (Nombre, Apellido) ocupen 1 columna cada uno,
-   pero el botón y el link ocuparán 2 columnas (fila completa). */
 .register-form .register-btn {
-  grid-column: 1 / -1; /* ocupa toda la fila */
+  grid-column: 1 / -1;
   padding: 12px;
   border-radius: 10px;
   border: none;
@@ -126,7 +94,6 @@ html, body, #root {
   filter: brightness(0.98);
 }
 
-/* Link de ir a inicio también ocupa toda la fila */
 .register-form .register-link {
   grid-column: 1 / -1;
   display: inline-block;
@@ -137,7 +104,6 @@ html, body, #root {
   font-weight: 600;
 }
 
-/* Mensaje debajo de la tarjeta */
 .register-message {
   margin-top: 12px;
   text-align: center;
@@ -145,7 +111,6 @@ html, body, #root {
   font-weight: 600;
 }
 
-/* Media queries: en pantallas pequeñas apilamos todo en 1 columna y reducimos padding */
 @media (max-width: 600px) {
   .register-container {
     max-width: 420px;
@@ -153,7 +118,7 @@ html, body, #root {
   }
 
   .register-form {
-    grid-template-columns: 1fr; /* una columna */
+    grid-template-columns: 1fr;
   }
 
   .register-form .register-btn {

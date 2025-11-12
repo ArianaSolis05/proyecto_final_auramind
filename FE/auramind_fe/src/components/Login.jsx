@@ -4,18 +4,19 @@ import { useNavigate, Link } from "react-router-dom";
 import "../Estilos/Login.css";
 
 function Login() {
-  const [email, setEmail] = useState("");
+  const [usuario, setUsuario] = useState("");
   const [password, setPassword] = useState("");
   const [mensaje, setMensaje] = useState("");
   const navigate = useNavigate();
 
   async function iniciarSesion() {
-    if (email === "" || password === "") {
+    if (usuario === "" || password === "") {
       setMensaje("Complete todos los campos");
       return;
     }
 
-    const datos = { email, password };
+    const datos = { nombre_usuario:usuario, clave_usuario:password };
+
     const respuesta = await postDatos(datos, "usuarios/login/");
 
     if (respuesta && respuesta.token) {
@@ -41,14 +42,14 @@ function Login() {
 
           <div className="input-row">
             <label className="input-label">
-              Correo electrónico
+              Nombre de usuario
               <input
-                type="email"
+                type="text"
                 className="input-field"
-                placeholder="Ingresa tu correo"
+                placeholder="Ingresa tu nombre de usuario"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={usuario}
+                onChange={(e) => setUsuario(e.target.value)}
               />
             </label>
           </div>
