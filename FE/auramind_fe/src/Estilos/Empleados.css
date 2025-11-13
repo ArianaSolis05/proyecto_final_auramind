@@ -1,0 +1,38 @@
+
+.equipo {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  background-color: #cfe3e0;
+  border-radius: 12px;
+  text-align: center;
+  width: 220px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  color: #447b74;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.4;
+}
