@@ -19,10 +19,10 @@ function Login() {
 
     const respuesta = await postDatos(datos, "usuarios/login/");
 
-    if (respuesta && respuesta.token) {
+    if (respuesta && respuesta.mensaje == "Validacion correcta") {
       setMensaje("Inicio de sesión exitoso");
       localStorage.setItem("token", respuesta.token);
-      navigate("/inicio");
+      navigate("/PagPrincipal");
     } else {
       setMensaje("Credenciales incorrectas");
     }
@@ -72,6 +72,7 @@ function Login() {
             className="login-btn"
             type="button"
             onClick={iniciarSesion}
+            
           >
             Ingresar
           </button>

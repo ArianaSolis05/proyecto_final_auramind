@@ -1,4 +1,6 @@
 import React from "react";
+import "../Estilos/Empleados.css";
+
 
 function Empleados() {
   return (
