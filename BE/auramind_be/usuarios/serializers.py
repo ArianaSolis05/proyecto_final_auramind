@@ -7,6 +7,13 @@ class UsuarioSerializer(ModelSerializer):
         model = Usuario
         fields = ["id","username","email","password","email","fecha_nacimiento","cedula","nacionalidad","genero","first_name","last_name","rol","telefono"]
 
+    def create(self,validated_data):
+        clave = validated_data.pop("password")
+        usuario = Usuario(**validated_data)
+        usuario.set_password(clave)
+        usuario.save()
+        return usuario
+
 class PacienteSerializer(ModelSerializer):
     class Meta:
         model = Paciente
