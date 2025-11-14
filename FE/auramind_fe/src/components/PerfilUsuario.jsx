@@ -43,7 +43,7 @@ const PerfilUsuario = () => {
           </div>
 
           <div className="perfil-botones">
-            <Link to="/editar-perfil" className="btn-editar">Editar Perfil</Link>
+            <Link to="/editar-usuario" className="btn-editar">Editar Perfil</Link>
             <Link to="/PagPrincipal" className="btn-volver">Volver</Link>
           </div>
         </aside>

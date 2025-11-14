@@ -24,7 +24,7 @@ function Home() {
 
           <nav className={`navbar-links ${menuOpen ? "open" : ""}`}>
             <a href="#inicio" className="nav-link" onClick={() => setMenuOpen(false)}>Inicio</a>
-            <a href="#perfil" className="nav-link" onClick={() => setMenuOpen(false)}>Perfil</a>
+            <a href="/Usuario" className="nav-link" onClick={() => setMenuOpen(false)}>Perfil</a>
             <a href="#acerca" className="nav-link" onClick={() => setMenuOpen(false)}>Acerca de AuraMind</a>
             <a href="#contacto" className="nav-link" onClick={() => setMenuOpen(false)}>Contacto</a>
             <a href="#agendar" className="nav-link" onClick={() => setMenuOpen(false)}>Agendar Cita</a>

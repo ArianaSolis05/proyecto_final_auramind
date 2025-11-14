@@ -4,6 +4,7 @@ import PagRegistro from "../pages/PagRegistro"
 import PagPrincipal from "../pages/PagPrincipal"
 import Personal from "../pages/Personal"
 import Usuario from "../pages/Usuario"
+import EditarPerfil from "../pages/EditarPerfil"
 
 const Routing = () => {
     return(
@@ -14,10 +15,7 @@ const Routing = () => {
                 <Route path="/PagPrincipal" element={<PagPrincipal/>}/>
                 <Route path="/Personal" element={<Personal/>}/>
                 <Route path="/Usuario" element={<Usuario/>}/>
-
-
-
-
+                <Route path="/editar-usuario" element={<EditarPerfil/>}/>
             </Routes>
         </Router>
     )

@@ -1,9 +1,7 @@
 
 import React, { useState } from "react";
-import "../styles/EditUsuario.css";
 import { patchDatos } from "../services/fetch.js";
 import { useNavigate } from "react-router-dom";
-import { patchDatos } from "../services/fetch.js"
 function EditUsuario() {
 
 
