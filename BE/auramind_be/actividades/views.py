@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import actividad
+from .serializers import ActividadSerializer
+from rest_framework.generics import ListCreateAPIView
+
+class ActividadCreateView(ListCreateAPIView):
+    queryset = actividad.objects.all()
+    serializer_class = ActividadSerializer
