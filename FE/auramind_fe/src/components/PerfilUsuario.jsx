@@ -27,7 +27,6 @@ const PerfilUsuario = () => {
     <section className="perfil-section">
       <div className="perfil-wrapper">
 
-        {/* --- PANEL IZQUIERDO --- */}
         <aside className="perfil-sidebar">
           <div className="perfil-imagen-container">
             <img src={usuario.imagen} alt="Foto de perfil" className="perfil-imagen" />

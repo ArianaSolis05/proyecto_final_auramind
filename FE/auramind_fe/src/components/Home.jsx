@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import "../Estilos/home.css";
-
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const navigate = useNavigate()
   return (
     <>
-      {/* 🔹 NAVBAR CON MENÚ HAMBURGUESA */}
+      
       <header className="navbar">
         <div className="navbar-container">
           <h2 className="navbar-logo">AURAMIND</h2>
 
-          {/* Botón de menú móvil */}
+        
           <div
             className={`menu-toggle ${menuOpen ? "active" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
@@ -28,12 +28,15 @@ function Home() {
             <a href="#acerca" className="nav-link" onClick={() => setMenuOpen(false)}>Acerca de AuraMind</a>
             <a href="#contacto" className="nav-link" onClick={() => setMenuOpen(false)}>Contacto</a>
             <a href="#agendar" className="nav-link" onClick={() => setMenuOpen(false)}>Agendar Cita</a>
-            <button className="navbar-button">Registrarse</button>
+            <button
+            onClick={()=>{
+              navigate("/crear-usuario")
+            }}
+            className="navbar-button">Registrarse</button>
           </nav>
         </div>
       </header>
 
-      {/* 🔹 SECCIÓN PRINCIPAL */}
       <section className="home-section">
         <div className="home-container">
           <div className="home-text">
@@ -47,7 +50,7 @@ function Home() {
             <button className="home-button">Obtener Ayuda</button>
           </div>
 
-          {/* Imagen aplicada solo por estilos */}
+          
           <div className="home-image"></div>
         </div>
       </section>
