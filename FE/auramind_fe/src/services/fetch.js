@@ -15,12 +15,11 @@ async function postDatos(obj, endpoint) {
     console.error(error);
   }
 }
-export {postDatos}
 
 
 async function getData(endpoint) {
     try {
-        const peticion = await fetch(`http://localhost:3001/${endpoint}`,{
+        const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`,{
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json'
@@ -33,4 +32,47 @@ async function getData(endpoint) {
         console.error(error);
     }
 }
-export {getData} 
+
+async function patchDatos(endpoint, id) {
+  try {
+    const response = await fetch(
+      `http://127.0.0.1:8000/${endpoint}/` + id + "/",
+      {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(eventos),
+      }
+    );
+
+    const consultas = await response.json();
+
+    return consultas;
+  } catch (error) {
+    error.log("Error al editar evento");
+  }
+}
+
+
+async function deleteDatos(endpoint, id) {
+  try {
+    const response = await fetch(
+      `http://127.0.0.1:8000/${endpoint}/` + id + "/",
+      {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+
+    const borrarDatos = await response.json();
+    return borrarDatos;
+  } catch (error) {
+    error.log("Error al eliminar dato");
+  }
+}
+
+
+export { postDatos, getData, patchDatos, deleteDatos };
