@@ -6,6 +6,8 @@ import Personal from "../pages/Personal"
 import Usuario from "../pages/Usuario"
 import EditarPerfil from "../pages/EditarPerfil"
 import PerfilProfesional from "../pages/PerfilProfesional"
+import Actividades from "../pages/Actividades"
+
 
 const Routing = () => {
     return(
@@ -18,7 +20,7 @@ const Routing = () => {
                 <Route path="/Usuario" element={<Usuario/>}/>
                 <Route path="/editar-usuario" element={<EditarPerfil/>}/>
                 <Route path="/CardProfesional" element={<PerfilProfesional/>}/>
-
+                <Route path="/CardActividades" element={<Actividades/>}/>
             </Routes>
         </Router>
     )
