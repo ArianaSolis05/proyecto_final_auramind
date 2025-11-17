@@ -21,6 +21,8 @@ const Routing = () => {
                 <Route path="/editar-usuario" element={<EditarPerfil/>}/>
                 <Route path="/CardActividades" element={<Actividades/>}/>
                 <Route path="/CardProfesional" element={<PerfilProfesional/>}/>
+                <Route path="/CardProfesional" element={<PerfilProfesional/>}/>
+                <Route path="/CardActividades" element={<Actividades/>}/>
             </Routes>
         </Router>
     )

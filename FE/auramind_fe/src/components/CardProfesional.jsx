@@ -7,7 +7,7 @@ const CardProfesional = ({ nombre, img, descripcion, especialidad }) => {
         <img src={img} alt={nombre} />
       </div>
       <p className="card-nombre">{nombre}</p>
-      <p className="card-descripcion">{descripcion}</p>
+      <p className="card-descripcion">{descripcion}</p> 
       <p className="card-especialidad">{especialidad}</p>
     </div>
   );
