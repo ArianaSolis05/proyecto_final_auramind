@@ -10,6 +10,15 @@ class UsuarioCreateView(ListCreateAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
 
+class UsuarioPorIdView(ListCreateAPIView):
+    serializer_class = UsuarioSerializer
+    
+    def get_queryset(self):
+        id_usuario = self.kwargs["id_usuario"] # urls
+        return Usuario.objects.filter(id=id_usuario)
+
+
+
 class PacienteCreateView(ListCreateAPIView):
     queryset = Paciente.objects.all()
     serializer_class = PacienteSerializer
