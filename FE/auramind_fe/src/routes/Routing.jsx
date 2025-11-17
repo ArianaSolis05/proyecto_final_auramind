@@ -5,6 +5,7 @@ import PagPrincipal from "../pages/PagPrincipal"
 import Personal from "../pages/Personal"
 import Usuario from "../pages/Usuario"
 import EditarPerfil from "../pages/EditarPerfil"
+import PerfilProfesional from "../pages/PerfilProfesional"
 import Actividades from "../pages/Actividades"
 
 
@@ -19,7 +20,7 @@ const Routing = () => {
                 <Route path="/Usuario" element={<Usuario/>}/>
                 <Route path="/editar-usuario" element={<EditarPerfil/>}/>
                 <Route path="/CardActividades" element={<Actividades/>}/>
-
+                <Route path="/CardProfesional" element={<PerfilProfesional/>}/>
             </Routes>
         </Router>
     )
