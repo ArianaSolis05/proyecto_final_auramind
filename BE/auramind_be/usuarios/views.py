@@ -36,7 +36,7 @@ class UsuarioLoginView(APIView):
         usuario_login = authenticate(username=usuario,password=clave)
 
         if usuario_login is not None:
-            return Response({"mensaje":"Validacion correcta"})
+            return Response({"mensaje":"Validacion correcta","idUsuario":usuario_login.id})
         else:
             return Response({"mensaje":"JEJE NONONO"})
 
