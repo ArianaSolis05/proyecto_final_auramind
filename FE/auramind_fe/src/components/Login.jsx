@@ -10,31 +10,24 @@ function Login() {
   const navigate = useNavigate();
 
   async function iniciarSesion() {
-    if (usuario === "" || password === "") {
-      setMensaje("Complete todos los campos");
-      return;
-    }
-
-    const datos = { nombre_usuario:usuario, clave_usuario:password };
-
-    const respuesta = await postDatos(datos, "usuarios/login/");
-
-    if (respuesta && respuesta.mensaje == "Validacion correcta") {
-      setMensaje("Inicio de sesión exitoso");
-      localStorage.setItem("token", respuesta.token);
-      navigate("/PagPrincipal");
-    } else {
-      setMensaje("Credenciales incorrectas");
-    }
+    const respuesta = await fetch(`http://127.0.0.1:8000/usuarios/login/`,{
+      method: 'POST',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'nombre_usuario':usuario,
+        'clave_usuario':password
+      })
+    });
+    const data = await respuesta.json()
+    console.log(data);
+    localStorage.setItem('idUsuario',data.idUsuario)
   }
 
-  useEffect(() => {
-    const timer = setTimeout(() => setMensaje(""), 1500);
-    return () => clearTimeout(timer);
-  }, [mensaje]);
 
   return (
-    <div>
+    <div> 
       <div className="login-container">
         <form className="login-card">
           <h2 className="login-title">Iniciar sesión</h2>
