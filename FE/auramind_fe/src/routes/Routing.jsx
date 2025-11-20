@@ -8,14 +8,13 @@ import Usuario from "../pages/Usuario";
 import EditarPerfil from "../pages/EditarPerfil";
 import PerfilProfesional from "../pages/PerfilProfesional";
 import Actividades from "../pages/Actividades";
+import PerfilAdmin from "../pages/PerfilAdmin";
 
 const Routing = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Inicio />} />
-
-
         <Route path="/crear-usuario" element={<PagRegistro />} />
         <Route path="/PagPrincipal" element={<PagPrincipal />} />
         <Route path="/Personal" element={<Personal />} />
@@ -23,6 +22,8 @@ const Routing = () => {
         <Route path="/editar-usuario" element={<EditarPerfil />} />
         <Route path="/CardProfesional" element={<PerfilProfesional />} />
         <Route path="/CardActividades" element={<Actividades />} />
+        <Route path="/Admin" element={<PerfilAdmin />} />
+
       </Routes>
     </Router>
   );
