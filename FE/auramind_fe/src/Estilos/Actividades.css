@@ -1,0 +1,71 @@
+/* Contenedor general */
+.actividades-container {
+  background: #a8cbc8;         
+  padding: 40px 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Título */
+.titulo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #004b3b;
+  margin-bottom: 40px;
+}
+
+/* Contenedor de tarjetas */
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Tarjeta individual */
+.card {
+  background: transparent;
+  width: 300px;
+}
+
+/* Imagen */
+.img-container {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Texto de título dentro de la tarjeta */
+.card-titulo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+/* Descripción */
+.card-descripcion {
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Fecha */
+.card-fecha {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Texto superior “hola” (si lo necesitas) */
+.saludo {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #666;
+}

@@ -6,3 +6,6 @@ class ActividadSerializer(ModelSerializer):
     class Meta:
         model = actividad
         fields = "__all__" 
+        
+
+        

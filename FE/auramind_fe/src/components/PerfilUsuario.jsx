@@ -43,6 +43,7 @@ const PerfilUsuario = () => {
           </div>
         </aside>
 
+
         {/* --- PANEL DERECHO --- */}
         <main className="perfil-detalles">
           <div className="perfil-card">
@@ -68,5 +69,6 @@ const PerfilUsuario = () => {
     </section>
   );
 };
+
 
 export default PerfilUsuario;
