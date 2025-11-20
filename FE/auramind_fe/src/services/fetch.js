@@ -33,10 +33,10 @@ async function getData(endpoint) {
     }
 }
 
-async function patchDatos(endpoint, id) {
+async function patchDatos(endpoint) {
   try {
     const response = await fetch(
-      `http://127.0.0.1:8000/${endpoint}/` + id + "/",
+      `http://127.0.0.1:8000/${endpoint}/`,
       {
         method: "PATCH",
         headers: {

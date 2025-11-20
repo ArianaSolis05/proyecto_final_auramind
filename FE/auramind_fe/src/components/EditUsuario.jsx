@@ -2,42 +2,53 @@ import React, { useState } from "react";
 import "../Estilos/editUsuario.css";
 import { patchDatos } from "../services/fetch.js";
 import { useNavigate } from "react-router-dom";
-
+import { getData } from "../services/fetch.js";
+import { useEffect } from "react";
 function EditUsuario() {
   const navigate = useNavigate();
 
-  const [infoUsuario] = useState(
-    JSON.parse(localStorage.getItem("usuarioCompleto")) || []
-  );
+  const [infoUsuario, setInfoUsuario] = useState([]);
 
-  const [password, setPassword] = useState(infoUsuario.password);
-  const [userName, setUsername] = useState(infoUsuario.userName);
-  const [firstName, setFirstName] = useState(infoUsuario.firstName);
-  const [lastName, setLastName] = useState(infoUsuario.lastName);
-  const [email, setEmail] = useState(infoUsuario.email);
+  const [password, setPassword] = useState(infoUsuario.password || "");
+  const [userName, setUsername] = useState(infoUsuario.username || "");
+  const [firstName, setFirstName] = useState(infoUsuario.first_name || "");
+  const [lastName, setLastName] = useState(infoUsuario.last_name || "");
+  const [email, setEmail] = useState(infoUsuario.email || "");
   const [fechaNacimiento, setFechaNacimiento] = useState(
-    infoUsuario.fechaNacimiento
+    infoUsuario.fecha_nacimiento || ""
   );
-  const [nacionalidad, setNacionalidad] = useState(infoUsuario.nacionalidad);
-  const [genero, setGenero] = useState(infoUsuario.genero);
-  const [telefono, setTelefono] = useState(infoUsuario.telefono);
-
+  const [nacionalidad, setNacionalidad] = useState(
+    infoUsuario.nacionalidad || ""
+  );
+  const [genero, setGenero] = useState(infoUsuario.genero || "");
+  const [telefono, setTelefono] = useState(infoUsuario.telefono || "");
+  useEffect(() => {
+    async function traeUsuario() {
+      const peticion = await getData(
+        `usuarios/usuario/${localStorage.getItem("idUsuario")}/`
+      );
+      console.log(peticion);
+      setUsername(infoUsuario.username);
+      setInfoUsuario(peticion[0]);
+    }
+    traeUsuario();
+  }, []);
   async function EditUsuario(e) {
     e.preventDefault();
-
     const ObjUser = {
-      newPass: password,
-      newUser: userName,
-      newNombre: firstName,
-      newApellido: lastName,
-      newEmail: email,
-      newFechaNac: fechaNacimiento,
-      newNacionalidad: nacionalidad,
-      newGenero: genero,
-      newTelefono: telefono,
+      id_usuario: localStorage.getItem('id_usuario'),
+      password: password,
+      username: userName,
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      fecha_nacimiento: fechaNacimiento,
+      nacionalidad: nacionalidad,
+      genero: genero,
+      telefono: telefono,
     };
 
-    await patchDatos("usuarios", ObjUser, infoUsuario.id);
+    await patchDatos("usuarios", ObjUser);
   }
 
   return (
@@ -51,7 +62,7 @@ function EditUsuario() {
             <input
               type="text"
               placeholder="Nombre"
-              value={firstName}
+              value={infoUsuario.username}
               onChange={(e) => setFirstName(e.target.value)}
             />
 
@@ -59,7 +70,7 @@ function EditUsuario() {
             <input
               type="text"
               placeholder="Apellido"
-              value={lastName}
+              value={infoUsuario.last_name}
               onChange={(e) => setLastName(e.target.value)}
             />
 

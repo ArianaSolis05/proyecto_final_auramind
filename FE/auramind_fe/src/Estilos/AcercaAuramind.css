@@ -1,0 +1,122 @@
+/* -------------------------
+   CONTENEDOR GENERAL
+------------------------- */
+.about-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 25px;
+  font-family: "Poppins", sans-serif;
+  color: #2d2d2d;
+  animation: fadeIn 0.7s ease;
+}
+
+/* -------------------------
+   HERO
+------------------------- */
+.about-hero {
+  text-align: center;
+  background: linear-gradient(135deg, #bdd9fa, #dcd4ff);
+  padding: 35px 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.about-hero h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.about-hero p {
+  margin-top: 12px;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* -------------------------
+   SECCIONES
+------------------------- */
+.about-section {
+  margin-top: 25px;
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+/* Animación leve al aparecer */
+.fade-section {
+  animation: slideUp 0.7s ease;
+}
+
+.about-section h2 {
+  margin: 0 0 12px 0;
+  font-size: 1.6rem;
+  color: #6d4bff;
+  font-weight: 600;
+}
+
+/* -------------------------
+   TARJETAS GRANDES
+------------------------- */
+.about-card {
+  background: #f7f4ff;
+  padding: 18px 20px;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  line-height: 1.6;
+}
+
+/* -------------------------
+   GRID DE MINI CARDS
+------------------------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-top: 15px;
+}
+
+.mini-card {
+  background: #efeaff;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+  transition: 0.3s ease;
+}
+
+.mini-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.mini-card h3 {
+  margin: 0 0 8px 0;
+  color: #6d4bff;
+  font-size: 1.2rem;
+}
+
+.mini-card p {
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* -------------------------
+   ANIMACIONES
+------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

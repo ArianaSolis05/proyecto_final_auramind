@@ -27,6 +27,7 @@ class PsicologoCreateView(ListCreateAPIView):
     queryset = Psicologo.objects.all()
     serializer_class = PsicologoSerializer
 
+
 class UsuarioLoginView(APIView):
     def post(self,request):
         usuario = request.data.get("nombre_usuario")
@@ -41,7 +42,28 @@ class UsuarioLoginView(APIView):
             return Response({"mensaje":"JEJE NONONO"})
 
 
+class EditarUsuarioView(APIView):
+    def patch(self,request):
+        id_usuario = request.data.get("id_usuario")
+        username = request.data.get("username")
+        email = request.data.get("email")
+
+        password = request.data.get("password")
+
+        usuario = Usuario.objects.filter(id=id_usuario).first()
+
+        if username:
+            usuario.username = username
+        if password:
+            usuario.set_password(password) 
+        if email:
+            usuario.email = email
         
+
+        usuario.save()
+
+        return Response({"mensaje":"Usuario actualizado con éxito"})
+
 
 
 

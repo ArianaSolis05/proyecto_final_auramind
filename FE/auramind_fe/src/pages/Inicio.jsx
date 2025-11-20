@@ -7,6 +7,6 @@ const Inicio = () =>{
         <div>
             <Login/>
         </div>
-    )
+    ) 
 }
 export default Inicio
