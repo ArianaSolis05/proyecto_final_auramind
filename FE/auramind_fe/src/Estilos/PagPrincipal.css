@@ -1,0 +1,51 @@
+/* Contenedor donde van las tarjetas (actividades y profesionales) */
+.seccion-cards {
+  display: flex;
+  flex-wrap: wrap;        /* Para que los cards bajen si no caben */
+  gap: 20px;              /* Espacio entre cards */
+  justify-content: center;
+  padding: 10px 0;
+}
+
+/* Títulos de cada sección */
+.seccion-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 25px 0 10px;
+  color: #4a3aff;
+}
+
+/* Estilo general para cada tarjeta */
+.card {
+  width: 280px;
+  min-height: 170px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* Efecto hover */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+/* Títulos dentro del card */
+.card h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+/* Textos dentro del card */
+.card p {
+  margin-top: 6px;
+  color: #555;
+  font-size: 15px;
+}

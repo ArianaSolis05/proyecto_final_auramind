@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import "../Estilos/PagPrincipal.css";
+
 
 import Home from '../components/Home'
 import CardActividades from '../components/CardActividades'
@@ -13,7 +15,6 @@ function PagPrincipal() {
   useEffect(()=>{
     async function traerActividades() {
       const peticion = await getData("actividades/crear-actividad/")
-      // const filtro = peticion.filter((especialidad)=>especialidad.rol == "psicologo")
       setListaActividades(peticion)
     }
     traerActividades()
@@ -25,46 +26,41 @@ function PagPrincipal() {
       const filtro = respuesta.filter((especialidad)=>especialidad.rol == "psicologo")
       setListaProfesionales(filtro)
       console.log(respuesta);
-      
     }
     traerProfesionles()
   },[])
+
   return (
     <div>
 
-   
-    <Home/>
-    
-      <h1>Actividades</h1>
-    {listaActividades.map((actividad)=>{
-      return(
-        <CardActividades
-          nombre_actividad={actividad.nombre_actividad}
-          descripcion={actividad.descripcion}
-          fecha={actividad.fecha}
+      <Home/>
+
+      <h1 className="seccion-title">Actividades</h1>
+      <div className="seccion-cards">
+        {listaActividades.map((actividad)=>(
+          <CardActividades
+            key={actividad.id}
+            nombre_actividad={actividad.nombre_actividad}
+            descripcion={actividad.descripcion}
+            fecha={actividad.fecha}
+            className="card"
           />
-      )})
+        ))}
+      </div>
 
-      
-    } 
-      <h1>Profesionales</h1>
-    {listaProfesionales.map((Psicologo)=>{
-      return(
-        <CardProfesional
-          nombre_actividad={Psicologo.especialidad}
-          descripcion={Psicologo.descripcion}
-          nombre={Psicologo.username}
+      <h1 className="seccion-title">Profesionales</h1>
+      <div className="seccion-cards">
+        {listaProfesionales.map((Psicologo)=>(
+          <CardProfesional
+            key={Psicologo.id}
+            nombre_actividad={Psicologo.especialidad}
+            descripcion={Psicologo.descripcion}
+            nombre={Psicologo.username}
+            className="card"
           />
-      )}  
-      )}  
+        ))}
+      </div>
 
-          
-      
-    
-  
-
-
-    
     </div>
   )
 }
