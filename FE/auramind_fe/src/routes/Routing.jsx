@@ -34,7 +34,6 @@ const Routing = () => {
         <Route path="/CrearActividad" element={<AgregarActividad/>} />
         <Route path="/Contacto" element={<ContactoAuramind />} />
         <Route path="/CrearActividad" element={<AgregarActividad/>} />
-
       </Routes>
     </Router>
   );
