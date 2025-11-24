@@ -32,7 +32,7 @@ function Admin() {
       </div>
       <div className="content">
         <div className="topbar d-flex justify-content-between align-items-center mb-4">
-          <h4 className="m-0">Analytics Dashboard</h4>
+          <h4 className="m-0">AuraMind</h4>
         </div>
 
         <div className="row g-3">
