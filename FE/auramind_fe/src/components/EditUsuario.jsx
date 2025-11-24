@@ -1,150 +1,157 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Estilos/editUsuario.css";
-import { patchDatos } from "../services/fetch.js";
+import { patchDatos, getData } from "../services/fetch.js";
 import { useNavigate } from "react-router-dom";
-import { getData } from "../services/fetch.js";
-import { useEffect } from "react";
+
 function EditUsuario() {
   const navigate = useNavigate();
 
-  const [infoUsuario, setInfoUsuario] = useState([]);
+  const [infoUsuario, setInfoUsuario] = useState(null);
+  const [formData, setFormData] = useState({
+    username: "",
+    first_name: "",
+    last_name: "",
+    email: "",
+    fecha_nacimiento: "",
+    nacionalidad: "",
+    genero: "",
+    telefono: "",
+  });
 
-  const [password, setPassword] = useState(infoUsuario.password || "");
-  const [firstName, setFirstName] = useState(infoUsuario.first_name || "");
-  const [lastName, setLastName] = useState(infoUsuario.last_name || "");
-  const [email, setEmail] = useState(infoUsuario.email || "");
-  const [fechaNacimiento, setFechaNacimiento] = useState(
-    infoUsuario.fecha_nacimiento || ""
-  );
-  const [nacionalidad, setNacionalidad] = useState(
-    infoUsuario.nacionalidad || ""
-  );
-  const [genero, setGenero] = useState(infoUsuario.genero || "");
-  const [telefono, setTelefono] = useState(infoUsuario.telefono || "");
-
+  // Obtener datos del usuario
   useEffect(() => {
     async function traeUsuario() {
-      const peticion = await getData(
+      const res = await getData(
         `usuarios/usuario/${localStorage.getItem("idUsuario")}/`
       );
-      console.log(peticion);
-      setInfoUsuario(peticion[0]);
-      console.log(infoUsuario);
-      
-      setUsername(infoUsuario.username);
+
+      const usuario = res[0];
+      setInfoUsuario(usuario);
+
+      // Llenamos formData con los datos del usuario
+      setFormData(usuario);
     }
+
     traeUsuario();
   }, []);
-  const [userName, setUsername] = useState("");
 
-  async function EditUsuario(e) {
+  // Manejo de cambios en inputs
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Guardar cambios
+  async function handleEdit(e) {
     e.preventDefault();
+
     const ObjUser = {
-      id_usuario: localStorage.getItem('id_usuario'),
-      password: password,
-      username: userName,
-      first_name: firstName,
-      last_name: lastName,
-      email: email,
-      fecha_nacimiento: fechaNacimiento,
-      nacionalidad: nacionalidad,
-      genero: genero,
-      telefono: telefono,
+      id_usuario: localStorage.getItem("idUsuario"),
+      ...formData, // enviamos los datos actualizados
     };
 
-    await patchDatos("usuarios", ObjUser);
+    const peticion = await patchDatos("usuarios/actualizar-usuario", ObjUser);
+    console.log(peticion);
+    
+    alert("Datos actualizados correctamente");
   }
 
+  if (!infoUsuario) return <p>Cargando...</p>;
+
   return (
-    <div>
-      <div className="modal-editar-usuario">
-        <div className="formulario">
-          <h2>Editar Usuario</h2>
+    <div className="modal-editar-usuario">
+      <div className="formulario">
+        <h2>Editar Usuario</h2>
 
-          <form>
-            <label>Nombre</label>
-            <input
-              type="text"
-              placeholder="Nombre"
-              value={userName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
+        <form onSubmit={handleEdit}>
+          <label>Nombre</label>
+          <input
+            type="text"
+            name="first_name"
+            placeholder="Nombre"
+            value={formData.first_name}
+            onChange={handleChange}
+          />
 
-            <label>Apellido</label>
-            <input
-              type="text"
-              placeholder="Apellido"
-              value={infoUsuario.last_name}
-              onChange={(e) => setLastName(e.target.value)}
-            />
+          <label>Apellido</label>
+          <input
+            type="text"
+            name="last_name"
+            placeholder="Apellido"
+            value={formData.last_name}
+            onChange={handleChange}
+          />
 
-            <label>Nombre Usuario</label>
-            <input
-              type="text"
-              placeholder="Username"
-              value={infoUsuario.first_name}
-              onChange={(e) => setUsername(e.target.value)}
-            />
+          <label>Nombre Usuario</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={formData.username}
+            onChange={handleChange}
+          />
 
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="ejemplo@correo.com"
-              value={infoUsuario.email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="ejemplo@correo.com"
+            value={formData.email}
+            onChange={handleChange}
+          />
 
-            <label>Fecha de Nacimiento</label>
-            <input
-              type="text"
-              placeholder="00/00/0000"
-              value={infoUsuario.fecha_nacimiento}
-              onChange={(e) => setFechaNacimiento(e.target.value)}
-            />
+          <label>Fecha de Nacimiento</label>
+          <input
+            type="text"
+            name="fecha_nacimiento"
+            placeholder="00/00/0000"
+            value={formData.fecha_nacimiento}
+            onChange={handleChange}
+          />
 
-            <label>Nacionalidad</label>
-            <input
-              type="text"
-              placeholder="Nacionalidad"
-              value={infoUsuario.nacionalidad}
-              onChange={(e) => setNacionalidad(e.target.value)}
-            />
+          <label>Nacionalidad</label>
+          <input
+            type="text"
+            name="nacionalidad"
+            placeholder="Nacionalidad"
+            value={formData.nacionalidad}
+            onChange={handleChange}
+          />
 
-            <label>Género</label>
-            <input
-              type="text"
-              placeholder="Género"
-              value={infoUsuario.genero}
-              onChange={(e) => setGenero(e.target.value)}
-            />
+          <label>Género</label>
+          <input
+            type="text"
+            name="genero"
+            placeholder="Género"
+            value={formData.genero}
+            onChange={handleChange}
+          />
 
-            <label>Teléfono</label>
-            <input
-              type="text"
-              placeholder="Teléfono"
-              value={infoUsuario.telefono}
-              onChange={(e) => setTelefono(e.target.value)}
-            />
+          <label>Teléfono</label>
+          <input
+            type="text"
+            name="telefono"
+            placeholder="Teléfono"
+            value={formData.telefono}
+            onChange={handleChange}
+          />
 
-            <div className="acciones">
-              <button
-                type="button"
-                className="btn-guardar"
-                onClick={EditUsuario}
-              >
-                Guardar
-              </button>
+          <div className="acciones">
+            <button type="submit" className="btn-guardar">
+              Guardar
+            </button>
 
-              <button
-                type="button"
-                className="btn-cancelar"
-                onClick={() => navigate("/")}
-              >
-                Volver a Inicio
-              </button>
-            </div>
-          </form>
-        </div>
+            <button
+              type="button"
+              className="btn-cancelar"
+              onClick={() => navigate("/PagPrincipal")}
+            >
+              Volver a Inicio
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

@@ -5,6 +5,8 @@ from rest_framework.generics import ListCreateAPIView
 from rest_framework.views import APIView
 from django.contrib.auth import authenticate
 from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import RefreshToken
+
 
 class UsuarioCreateView(ListCreateAPIView):
     queryset = Usuario.objects.all()
@@ -37,7 +39,12 @@ class UsuarioLoginView(APIView):
         usuario_login = authenticate(username=usuario,password=clave)
 
         if usuario_login is not None:
-            return Response({"mensaje":"Validacion correcta","idUsuario":usuario_login.id})
+            token = RefreshToken.for_user(usuario_login)
+            return Response({"mensaje":"Validacion correcta",
+                             "idUsuario":usuario_login.id,
+                             "acceso":str(token.access_token),
+                             "rol":usuario_login.rol,
+                             "refresh":str(token)})
         else:
             return Response({"mensaje":"JEJE NONONO"})
 
@@ -46,19 +53,25 @@ class EditarUsuarioView(APIView):
     def patch(self,request):
         id_usuario = request.data.get("id_usuario")
         username = request.data.get("username")
+        first_name = request.data.get("first_name")
+        last_name = request.data.get("last_name")
         email = request.data.get("email")
-
-        password = request.data.get("password")
-
+        telefono = request.data.get("telefono")        
         usuario = Usuario.objects.filter(id=id_usuario).first()
+        genero = request.data.get("genero")
 
         if username:
             usuario.username = username
-        if password:
-            usuario.set_password(password) 
         if email:
             usuario.email = email
-        
+        if first_name:
+            usuario.first_name = first_name
+        if last_name:
+            usuario.last_name = last_name
+        if telefono:
+            usuario.telefono = telefono
+        if genero:
+            usuario.genero = genero
 
         usuario.save()
 

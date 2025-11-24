@@ -7,19 +7,24 @@ import {  useNavigate } from "react-router-dom";
 function CrearActividad() {
   const navigate = useNavigate();
 
-  const [titulo, setTitulo] = useState("");
+  const [nombreActividad, setNombreActividad] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [fecha, setFecha] = useState("");
+  const [tipo, setTipo] = useState("");
+  const [ubicacion, setUbicacion] = useState("");
   
 
 
   async function agregarActividad() {
     const objActividad = {
-      titulo: titulo,
+      nombre_actividad: nombreActividad,
       descripcion: descripcion,
-      fechaEvento: fecha,
+      fecha: fecha,
+      tipo: tipo,
+      ubicacion: ubicacion,
+
     };
-    await postDatos(objActividad, "/actividades/crear-actividad");
+    await postDatos(objActividad, "actividades/crear-actividad/");
   }
   return (
     <div className="formulario-contenedor">
@@ -29,17 +34,27 @@ function CrearActividad() {
           type="text"
           name="nombre"
           placeholder="Nombre del evento"
-          onChange={(e) => setTitulo(e.target.value)}
+          onChange={(e) => setNombreActividad(e.target.value)}
         />
         <input
-          type="date"
+          type="text"
           name="fecha"
           onChange={(e) => setDescripcion(e.target.value)}
         />
         <input
-          type="time"
+          type="date"
           name="hora"
           onChange={(e) => setFecha(e.target.value)}
+        />
+         <input
+          type="text"
+          name="hora"
+          onChange={(e) => setTipo(e.target.value)}
+        />
+         <input
+          type="text"
+          name="hora"
+          onChange={(e) => setUbicacion(e.target.value)}
         />
     
         <button onClick={agregarActividad} type="button">
