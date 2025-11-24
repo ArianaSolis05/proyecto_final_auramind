@@ -1,10 +1,10 @@
 
 from rest_framework.serializers import ModelSerializer
-from .models import actividad
+from .models import Actividad
 
 class ActividadSerializer(ModelSerializer):
     class Meta:
-        model = actividad
+        model = Actividad
         fields = "__all__" 
         
 

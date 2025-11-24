@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import "../Estilos/home.css";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import "../Estilos/Menu.css"
 
-function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate()
+
+function Menu() {
   return (
-    <>
-       <header className="navbar">
+    <div>
+           <header className="navbar">
         <div className="navbar-container">
           <h2 className="navbar-logo">AURAMIND</h2>
 
@@ -25,7 +23,7 @@ function Home() {
             <a href="#inicio" className="nav-link" onClick={() => setMenuOpen()}>Inicio</a>
             <a className="nav-link" onClick={() => navigate("/Usuario")}>Perfil</a>
             <a href="#acerca" className="nav-link" onClick={() => navigate("/AcercaAuramind")} >Acerca de AuraMind</a>
-            <a href="#contacto" className="nav-link" onClick={() => navigate ("/Contacto")}>Contacto</a>
+            <a href="#contacto" className="nav-link" onClick={() => setMenuOpen()}>Contacto</a>
             <a href="#agendar" className="nav-link" onClick={() => setMenuOpen()}>Agendar Cita</a>
             <button
             onClick={()=>{
@@ -35,28 +33,11 @@ function Home() {
           </nav>
         </div>
       </header>
-  
 
-      <section className="home-section">
-        <div className="home-container">
-          <div className="home-text">
-            <h3 className="home-subtitle">AURAMIND</h3>
-            <h1 className="home-title">
-              Le damos la <br />
-              bienvenida a <br />
-              nuestra <br />
-              plataforma de apoyo psicológico
-            </h1>
-            <button className="home-button">Obtener Ayuda</button>
-          </div>
 
-          
-          <div className="home-image"></div>
-        </div>
-      </section>
-    </>
-  );
+
+    </div>
+  )
 }
 
-export default Home;
-
+export default Menu

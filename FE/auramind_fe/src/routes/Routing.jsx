@@ -8,14 +8,12 @@ import Usuario from "../pages/Usuario";
 import EditarPerfil from "../pages/EditarPerfil";
 import PerfilProfesional from "../pages/PerfilProfesional";
 import Actividades from "../pages/Actividades";
-<<<<<<< HEAD
 import CronogramaCitas from "../pages/CronogramaCitas";
 import InfoAuramind from "../pages/InfoAuramind";
-
-
-=======
 import PerfilAdmin from "../pages/PerfilAdmin";
->>>>>>> 5bdea4c2266b024327ecd2cb8156952913fe974f
+import ContactoAuramind from "../pages/ContactoAuramind";
+
+
 
 const Routing = () => {
   return (
@@ -29,13 +27,14 @@ const Routing = () => {
         <Route path="/EditUsuario" element={<EditarPerfil />} />
         <Route path="/CardProfesional" element={<PerfilProfesional />} />
         <Route path="/CardActividades" element={<Actividades />} />
-<<<<<<< HEAD
         <Route path="/Cronograma" element={<CronogramaCitas />} />
         <Route path="/AcercaAuramind" element={<InfoAuramind />} />
-
-=======
         <Route path="/Admin" element={<PerfilAdmin />} />
->>>>>>> 5bdea4c2266b024327ecd2cb8156952913fe974f
+        <Route path="/Contacto" element={<ContactoAuramind />} />
+
+      
+
+
 
       </Routes>
     </Router>

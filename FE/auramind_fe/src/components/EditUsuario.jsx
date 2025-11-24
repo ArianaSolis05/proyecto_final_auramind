@@ -10,7 +10,6 @@ function EditUsuario() {
   const [infoUsuario, setInfoUsuario] = useState([]);
 
   const [password, setPassword] = useState(infoUsuario.password || "");
-  const [userName, setUsername] = useState(infoUsuario.username || "");
   const [firstName, setFirstName] = useState(infoUsuario.first_name || "");
   const [lastName, setLastName] = useState(infoUsuario.last_name || "");
   const [email, setEmail] = useState(infoUsuario.email || "");
@@ -22,17 +21,22 @@ function EditUsuario() {
   );
   const [genero, setGenero] = useState(infoUsuario.genero || "");
   const [telefono, setTelefono] = useState(infoUsuario.telefono || "");
+
   useEffect(() => {
     async function traeUsuario() {
       const peticion = await getData(
         `usuarios/usuario/${localStorage.getItem("idUsuario")}/`
       );
       console.log(peticion);
-      setUsername(infoUsuario.username);
       setInfoUsuario(peticion[0]);
+      console.log(infoUsuario);
+      
+      setUsername(infoUsuario.username);
     }
     traeUsuario();
   }, []);
+  const [userName, setUsername] = useState("");
+
   async function EditUsuario(e) {
     e.preventDefault();
     const ObjUser = {
@@ -62,7 +66,7 @@ function EditUsuario() {
             <input
               type="text"
               placeholder="Nombre"
-              value={infoUsuario.username}
+              value={userName}
               onChange={(e) => setFirstName(e.target.value)}
             />
 
@@ -78,7 +82,7 @@ function EditUsuario() {
             <input
               type="text"
               placeholder="Username"
-              value={userName}
+              value={infoUsuario.first_name}
               onChange={(e) => setUsername(e.target.value)}
             />
 
@@ -86,23 +90,15 @@ function EditUsuario() {
             <input
               type="email"
               placeholder="ejemplo@correo.com"
-              value={email}
+              value={infoUsuario.email}
               onChange={(e) => setEmail(e.target.value)}
-            />
-
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Contraseña"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
             />
 
             <label>Fecha de Nacimiento</label>
             <input
               type="text"
               placeholder="00/00/0000"
-              value={fechaNacimiento}
+              value={infoUsuario.fecha_nacimiento}
               onChange={(e) => setFechaNacimiento(e.target.value)}
             />
 
@@ -110,7 +106,7 @@ function EditUsuario() {
             <input
               type="text"
               placeholder="Nacionalidad"
-              value={nacionalidad}
+              value={infoUsuario.nacionalidad}
               onChange={(e) => setNacionalidad(e.target.value)}
             />
 
@@ -118,7 +114,7 @@ function EditUsuario() {
             <input
               type="text"
               placeholder="Género"
-              value={genero}
+              value={infoUsuario.genero}
               onChange={(e) => setGenero(e.target.value)}
             />
 
@@ -126,7 +122,7 @@ function EditUsuario() {
             <input
               type="text"
               placeholder="Teléfono"
-              value={telefono}
+              value={infoUsuario.telefono}
               onChange={(e) => setTelefono(e.target.value)}
             />
 
