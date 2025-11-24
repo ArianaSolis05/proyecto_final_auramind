@@ -7,20 +7,27 @@ function Admin() {
   return (
     <div>
       <div className="sidebar">
-        <h3 className="p-3">Architect</h3>
+        <h3 className="p-3">AuraMind</h3>
+
 
         <a href="CrearActividad">
           <i className="fa fa-chart-bar me-2" onClick={() => navigate("/CrearActividad")}></i>{" "}
           Crear Actividad
         </a>
         <a href="#">
-          <i className="fa fa-table me-2"></i> Components
+          <i className="fa fa-table me-2"></i> Usuarios
         </a>
         <a href="#">
-          <i className="fa fa-cubes me-2"></i> Widgets
+          <i className="fa fa-cubes me-2"></i> Eventos
         </a>
         <a href="#">
-          <i className="fa fa-file-alt me-2"></i> Pages
+          <i className="fa fa-file-alt me-2"></i> Comentarios
+        </a>
+        <a href="#">
+          <i className="fa fa-file-alt me-2"></i> Configuracion
+        </a>
+        <a href="#">
+          <i className="fa fa-file-alt me-2"></i> Cerrar Sesion
         </a>
       </div>
       <div className="content">
