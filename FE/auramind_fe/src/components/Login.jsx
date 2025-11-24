@@ -24,12 +24,17 @@ function Login() {
 
     const data = await respuesta.json();
     console.log(data);
-    if (data.mensaje === "JEJE NONONO") {
-      alert("CREDENCIALES INVALIDAS")
+    console.log(data.rol);
+    if(data.rol == 'admin'){
+      localStorage.setItem("rol", "admin");
+      localStorage.setItem("idUsuario", data.idUsuario);
+       navigate('/admin')
+      return
+    }else{
+      localStorage.setItem("idUsuario", data.idUsuario);
+      navigate('/PagPrincipal')
       return
     }
-      localStorage.setItem("idUsuario", data.idUsuario);
-      navigate("/PagPrincipal"); 
 
   }
 

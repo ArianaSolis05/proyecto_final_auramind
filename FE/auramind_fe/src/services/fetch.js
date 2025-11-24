@@ -33,7 +33,7 @@ async function getData(endpoint) {
     }
 }
 
-async function patchDatos(endpoint) {
+async function patchDatos(endpoint,obj) {
   try {
     const response = await fetch(
       `http://127.0.0.1:8000/${endpoint}/`,
@@ -42,15 +42,15 @@ async function patchDatos(endpoint) {
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify(eventos),
+        body: JSON.stringify(obj),
       }
     );
 
     const consultas = await response.json();
-
+    console.log(consultas);
     return consultas;
   } catch (error) {
-    error.log("Error al editar evento");
+    console.log("Error al editar");
   }
 }
 

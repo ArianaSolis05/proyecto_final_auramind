@@ -22,8 +22,10 @@ function PagPrincipal() {
   useEffect(()=>{
     async function traerProfesionles() {
       const respuesta = await getData("/usuarios/crear-usuario/")
-      const filtro = peticion.filter((especialidad)=>especialidad.rol == "psicologo")
+      const filtro = respuesta.filter((especialidad)=>especialidad.rol == "psicologo")
       setListaProfesionales(filtro)
+      console.log(respuesta);
+      
     }
     traerProfesionles()
   },[])
@@ -33,9 +35,7 @@ function PagPrincipal() {
    
     <Home/>
     
-    <CardProfesional/>
-    
-
+      <h1>Actividades</h1>
     {listaActividades.map((actividad)=>{
       return(
         <CardActividades
@@ -46,13 +46,14 @@ function PagPrincipal() {
       )})
 
       
-    }  
+    } 
+      <h1>Profesionales</h1>
     {listaProfesionales.map((Psicologo)=>{
       return(
         <CardProfesional
           nombre_actividad={Psicologo.especialidad}
           descripcion={Psicologo.descripcion}
-          fecha={Psicologo.usuario_id}
+          nombre={Psicologo.username}
           />
       )}  
       )}  
