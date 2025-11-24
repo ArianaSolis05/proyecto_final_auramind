@@ -1,14 +1,17 @@
 import React from "react";
 import "../Estilos/Admin.css";
+import { useNavigate } from "react-router-dom";
 
 function Admin() {
+  const navigate = useNavigate;
   return (
     <div>
       <div className="sidebar">
         <h3 className="p-3">Architect</h3>
 
-        <a href="#">
-          <i className="fa fa-chart-bar me-2"></i> Dashboard
+        <a href="CrearActividad">
+          <i className="fa fa-chart-bar me-2" onClick={() => navigate("/CrearActividad")}></i>{" "}
+          Crear Actividad
         </a>
         <a href="#">
           <i className="fa fa-table me-2"></i> Components

@@ -9,6 +9,7 @@ import EditarPerfil from "../pages/EditarPerfil";
 import PerfilProfesional from "../pages/PerfilProfesional";
 import Actividades from "../pages/Actividades";
 import PerfilAdmin from "../pages/PerfilAdmin";
+import AgregarActividad from "../pages/AgregarActividad";
 
 const Routing = () => {
   return (
@@ -23,6 +24,7 @@ const Routing = () => {
         <Route path="/CardProfesional" element={<PerfilProfesional />} />
         <Route path="/CardActividades" element={<Actividades />} />
         <Route path="/Admin" element={<PerfilAdmin />} />
+        <Route path="/CrearActividad" element={<AgregarActividad/>} />
 
       </Routes>
     </Router>
