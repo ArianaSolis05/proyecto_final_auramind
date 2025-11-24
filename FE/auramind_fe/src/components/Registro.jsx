@@ -145,7 +145,7 @@ function Registro() {
           >
             Registrarse
           </button>
-
+          <p>{mensaje}</p>
           <Link to={"/"} className="register-link">
             Ir a inicio
           </Link>

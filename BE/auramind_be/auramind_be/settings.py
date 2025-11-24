@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'usuarios',
     'citas',
+    'actividades'
     
 ]
 CORS_ALLOW_ALL_ORIGINS = True
@@ -85,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'auramind_bd',
         'USER': 'root',
-        'PASSWORD': '1234',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': 3306
     }

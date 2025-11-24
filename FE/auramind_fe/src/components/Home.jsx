@@ -7,15 +7,14 @@ function Home() {
   const navigate = useNavigate()
   return (
     <>
-      
-      <header className="navbar">
+       <header className="navbar">
         <div className="navbar-container">
           <h2 className="navbar-logo">AURAMIND</h2>
 
         
           <div
             className={`menu-toggle ${menuOpen ? "active" : ""}`}
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMenuOpen()}
           >
             <span></span>
             <span></span>
@@ -23,11 +22,11 @@ function Home() {
           </div>
 
           <nav className={`navbar-links ${menuOpen ? "open" : ""}`}>
-            <a href="#inicio" className="nav-link" onClick={() => setMenuOpen(false)}>Inicio</a>
+            <a href="#inicio" className="nav-link" onClick={() => setMenuOpen()}>Inicio</a>
             <a className="nav-link" onClick={() => navigate("/Usuario")}>Perfil</a>
-            <a href="#acerca" className="nav-link" onClick={() => setMenuOpen(false)}>Acerca de AuraMind</a>
-            <a href="#contacto" className="nav-link" onClick={() => setMenuOpen(false)}>Contacto</a>
-            <a href="#agendar" className="nav-link" onClick={() => setMenuOpen(false)}>Agendar Cita</a>
+            <a href="#acerca" className="nav-link" onClick={() => navigate("/AcercaAuramind")} >Acerca de AuraMind</a>
+            <a href="#contacto" className="nav-link" onClick={() => navigate ("/Contacto")}>Contacto</a>
+            <a href="#agendar" className="nav-link" onClick={() => setMenuOpen()}>Agendar Cita</a>
             <button
             onClick={()=>{
               navigate("/crear-usuario")
@@ -36,6 +35,7 @@ function Home() {
           </nav>
         </div>
       </header>
+  
 
       <section className="home-section">
         <div className="home-container">

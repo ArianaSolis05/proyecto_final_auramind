@@ -8,8 +8,16 @@ import Usuario from "../pages/Usuario";
 import EditarPerfil from "../pages/EditarPerfil";
 import PerfilProfesional from "../pages/PerfilProfesional";
 import Actividades from "../pages/Actividades";
+import CronogramaCitas from "../pages/CronogramaCitas";
+import InfoAuramind from "../pages/InfoAuramind";
 import PerfilAdmin from "../pages/PerfilAdmin";
+<<<<<<< HEAD
 import AgregarActividad from "../pages/AgregarActividad";
+=======
+import ContactoAuramind from "../pages/ContactoAuramind";
+
+
+>>>>>>> 41f2c8e88aca7ffe8cf35dc7fa68957fa8f8963d
 
 const Routing = () => {
   return (
@@ -20,11 +28,21 @@ const Routing = () => {
         <Route path="/PagPrincipal" element={<PagPrincipal />} />
         <Route path="/Personal" element={<Personal />} />
         <Route path="/Usuario" element={<Usuario />} />
-        <Route path="/editar-usuario" element={<EditarPerfil />} />
+        <Route path="/EditUsuario" element={<EditarPerfil />} />
         <Route path="/CardProfesional" element={<PerfilProfesional />} />
         <Route path="/CardActividades" element={<Actividades />} />
+        <Route path="/Cronograma" element={<CronogramaCitas />} />
+        <Route path="/AcercaAuramind" element={<InfoAuramind />} />
         <Route path="/Admin" element={<PerfilAdmin />} />
+<<<<<<< HEAD
         <Route path="/CrearActividad" element={<AgregarActividad/>} />
+=======
+        <Route path="/Contacto" element={<ContactoAuramind />} />
+
+      
+
+
+>>>>>>> 41f2c8e88aca7ffe8cf35dc7fa68957fa8f8963d
 
       </Routes>
     </Router>

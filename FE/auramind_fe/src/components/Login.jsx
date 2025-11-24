@@ -7,27 +7,34 @@ function Login() {
   const [usuario, setUsuario] = useState("");
   const [password, setPassword] = useState("");
   const [mensaje, setMensaje] = useState("");
-  const navigate = useNavigate();
+
+  const navigate = useNavigate(); 
 
   async function iniciarSesion() {
-    const respuesta = await fetch(`http://127.0.0.1:8000/usuarios/login/`,{
-      method: 'POST',
-      headers:{
-        'Content-Type': 'application/json'
+    const respuesta = await fetch(`http://127.0.0.1:8000/usuarios/login/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        'nombre_usuario':usuario,
-        'clave_usuario':password
-      })
+        nombre_usuario: usuario,
+        clave_usuario: password,
+      }),
     });
-    const data = await respuesta.json()
+
+    const data = await respuesta.json();
     console.log(data);
-    localStorage.setItem('idUsuario',data.idUsuario)
+    if (data.mensaje === "JEJE NONONO") {
+      alert("CREDENCIALES INVALIDAS")
+      return
+    }
+      localStorage.setItem("idUsuario", data.idUsuario);
+      navigate("/PagPrincipal"); 
+
   }
 
-
   return (
-    <div> 
+    <div>
       <div className="login-container">
         <form className="login-card">
           <h2 className="login-title">Iniciar sesión</h2>
@@ -65,7 +72,6 @@ function Login() {
             className="login-btn"
             type="button"
             onClick={iniciarSesion}
-            
           >
             Ingresar
           </button>
