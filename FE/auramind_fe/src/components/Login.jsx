@@ -8,7 +8,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [mensaje, setMensaje] = useState("");
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   async function iniciarSesion() {
     const respuesta = await fetch(`http://127.0.0.1:8000/usuarios/login/`, {
@@ -24,18 +24,18 @@ function Login() {
 
     const data = await respuesta.json();
     console.log(data);
-    console.log(data.rol);
-    if(data.rol == 'admin'){
-      localStorage.setItem("rol", "admin");
-      localStorage.setItem("idUsuario", data.idUsuario);
-       navigate('/admin')
-      return
-    }else{
-      localStorage.setItem("idUsuario", data.idUsuario);
-      navigate('/PagPrincipal')
-      return
+    
+    if (data.rol == "admin") {
+      localStorage.setItem("rol", data.rol)
+      localStorage.setItem("idUsuario", data.idUsuario)
+      navigate("/admin")
+      return;
+    } else {
+      localStorage.setItem("rol", data.rol)
+      localStorage.setItem("idUsuario", data.idUsuario)
+      navigate("/PagPrincipal");
+      return;
     }
-
   }
 
   return (
@@ -73,11 +73,7 @@ function Login() {
             </label>
           </div>
 
-          <button
-            className="login-btn"
-            type="button"
-            onClick={iniciarSesion}
-          >
+          <button className="login-btn" type="button" onClick={iniciarSesion}>
             Ingresar
           </button>
 

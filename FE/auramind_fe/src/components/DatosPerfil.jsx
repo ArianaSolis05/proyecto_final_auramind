@@ -14,6 +14,7 @@ const DatosPerfil = ({
       <div >
         <img src={img} alt={nombre} />
       </div>
+      
       <p>{nombre}</p>
       <p>{correo}</p>
       <p>{especialidad}</p>
