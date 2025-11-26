@@ -33,7 +33,7 @@ function PagPrincipal() {
 
   return (
     <div>
-
+    
       <Home/>
 
       <h1 className="seccion-title">Actividades</h1>
