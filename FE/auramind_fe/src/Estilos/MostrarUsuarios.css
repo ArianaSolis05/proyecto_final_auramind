@@ -1,0 +1,197 @@
+/* === CONTENEDOR PRINCIPAL === */
+.usuarios-main {
+  background: #f4fafc; /* azul pastel muy claro */
+  padding: 50px;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 32px;
+  color: #3b4b5c;
+  margin-bottom: 45px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+
+/* === LISTA DE USUARIOS === */
+.usuarios-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+
+/* === TARJETA ESTILO NUEVO === */
+.tarjeta {
+  width: 290px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 25px;
+  border: 1px solid #dde7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.nombre {
+  font-size: 20px;
+  font-weight: 600;
+  color: #405363;
+  margin-bottom: 8px;
+}
+
+.correo {
+  font-size: 14px;
+  color: #6c7b88;
+  margin-bottom: 6px;
+}
+
+.rol {
+  font-size: 13px;
+  background: #d9e9ff; /* celeste suave */
+  color: #2d4c76;
+  padding: 5px 18px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* === BOTONES NUEVO ESTILO === */
+.acciones {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.25s ease;
+}
+
+/* Botón editar: verde pastel */
+.pastel-editar {
+  background: #d8f7e2;
+  color: #255f3a;
+}
+
+.pastel-editar:hover {
+  background: #c1f2d2;
+}
+
+/* Botón eliminar: coral pastel */
+.pastel-eliminar {
+  background: #ffe0d9;
+  color: #8b3b32;
+}
+
+.pastel-eliminar:hover {
+  background: #ffd1c5;
+}
+
+
+/* === MODAL === */
+.modal-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 50, 70, 0.35);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 380px;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 22px;
+  border: 1px solid #dbe2e7;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  animation: pop 0.25s ease;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal h2 {
+  color: #334455;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+
+/* INPUTS NUEVO DISEÑO */
+.modal input,
+.select-rol {
+  width: 100%;
+  padding: 13px;
+  border-radius: 12px;
+  background: #f7fafd;
+  border: 1px solid #cfd8de;
+  margin-bottom: 18px;
+  font-size: 14px;
+  transition: border 0.2s ease;
+}
+
+.modal input:focus,
+.select-rol:focus {
+  outline: none;
+  border-color: #8ab9e8;
+}
+
+
+/* BOTONES DEL MODAL */
+.modal-btns {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.pastel-guardar {
+  flex: 1;
+  background: #e4ffe2; /* verde menta pastel */
+  color: #2e6432;
+}
+
+.pastel-guardar:hover {
+  background: #d2ffd1;
+}
+
+.pastel-cerrar {
+  flex: 1;
+  background: #fff3d9; /* amarillo pastel */
+  color: #8b751d;
+}
+
+.pastel-cerrar:hover {
+  background: #ffebc0;
+}

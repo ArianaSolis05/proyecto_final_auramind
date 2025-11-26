@@ -33,7 +33,6 @@ function PagPrincipal() {
 
   return (
     <div>
-      <Hero/>
 
       <Home/>
 
