@@ -16,10 +16,10 @@ class Usuario(AbstractUser):
 
 
 class Psicologo(models.Model):
-    usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE, related_name="psicologo")
     especialidad = models.CharField(max_length=50)
     descripcion = models.TextField()
 
 class Paciente(models.Model):
-    usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE, related_name="paciente")
     ocupacion = models.CharField(max_length=50)
