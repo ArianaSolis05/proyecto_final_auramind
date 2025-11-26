@@ -52,11 +52,7 @@ function Admin() {
       </div>
       <div className="content">
         <div className="topbar d-flex justify-content-between align-items-center mb-4">
-<<<<<<< HEAD
-          <h4 className="m-0">AuraMind</h4>
-=======
           <h4 className="m-0">Página Admin</h4>
->>>>>>> 465034caeabecbabe504ba32f8130bb1ce41862b
         </div>
 
         <div className="row">{crearActividad && <CrearActividad />}</div>
