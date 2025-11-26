@@ -13,7 +13,8 @@ import InfoAuramind from "../pages/InfoAuramind";
 import PerfilAdmin from "../pages/PerfilAdmin";
 import AgregarActividad from "../pages/AgregarActividad";
 import ContactoAuramind from "../pages/ContactoAuramind";
-import Usuarios_admin from "../pages/Usuarios_admin";
+import AgendarCitas from "../pages/AgendarCitas";
+
 
 
 
@@ -35,8 +36,7 @@ const Routing = () => {
         <Route path="/CrearActividad" element={<AgregarActividad/>} />
         <Route path="/Contacto" element={<ContactoAuramind />} />
         <Route path="/CrearActividad" element={<AgregarActividad/>} />
-        <Route path="/UsuariosAdmin" element={<Usuarios_admin/>} />
-
+        <Route path="/AgendarCitas" element={<AgendarCitas/>} />
       </Routes>
     </Router>
   );
