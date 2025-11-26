@@ -39,21 +39,25 @@ function CrearActividad() {
         <input
           type="text"
           name="fecha"
+          placeholder="Descripción" 
           onChange={(e) => setDescripcion(e.target.value)}
         />
         <input
           type="date"
           name="hora"
+          placeholder="Descripción"
           onChange={(e) => setFecha(e.target.value)}
         />
          <input
           type="text"
           name="hora"
+          placeholder="Tipo de actividad"
           onChange={(e) => setTipo(e.target.value)}
         />
          <input
           type="text"
           name="hora"
+          placeholder="Ubicación"
           onChange={(e) => setUbicacion(e.target.value)}
         />
     

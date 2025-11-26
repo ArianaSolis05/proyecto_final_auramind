@@ -1,7 +1,8 @@
 import React from "react";
 import "../Estilos/AcercaAuramind.css";
-
+import { useNavigate } from "react-router-dom";
 function AcercaAuramind() {
+  const navigate = useNavigate();
   return (
     <div className="about-wrapper">
 
@@ -89,6 +90,11 @@ function AcercaAuramind() {
           <p>
             También podrán agendar citas y revisar todos los detalles desde su perfil.
           </p>
+           <button
+            onClick={()=>{
+              navigate("/pagPrincipal")
+            }}
+            className="navbar-button">Ir a inicio</button>
         </div>
       </section>
 

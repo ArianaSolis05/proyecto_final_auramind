@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "../Estilos/PagPrincipal.css";
+import Hero from '../components/Hero';
 
 
 import Home from '../components/Home'
@@ -32,6 +33,7 @@ function PagPrincipal() {
 
   return (
     <div>
+      <Hero/>
 
       <Home/>
 
