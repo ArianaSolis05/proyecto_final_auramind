@@ -25,7 +25,7 @@ function Menu() {
             <a href="#acerca" className="nav-link" onClick={() => navigate("/AcercaAuramind")} >Acerca de AuraMind</a>
             <a href="#contacto" className="nav-link" onClick={() => setMenuOpen()}>Contacto</a>
             <a href="#agendar" className="nav-link" onClick={() => setMenuOpen()}>Agendar Cita</a>
-            <button
+            <button 
             onClick={()=>{
               navigate("/crear-usuario")
             }}

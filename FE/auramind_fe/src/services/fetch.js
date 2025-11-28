@@ -70,9 +70,8 @@ async function deleteDatos(endpoint, id) {
     const borrarDatos = await response.json();
     return borrarDatos;
   } catch (error) {
-    error.log("Error al eliminar dato");
+    console.error("Error al eliminar dato");
   }
 }
-
 
 export { postDatos, getData, patchDatos, deleteDatos };

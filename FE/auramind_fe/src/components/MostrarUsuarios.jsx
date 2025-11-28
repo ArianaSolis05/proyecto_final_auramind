@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getData, patchDatos } from "../services/fetch";
+import { deleteDatos, getData, patchDatos } from "../services/fetch";
 import "../Estilos/MostrarUsuarios.css";
 
 const MostrarUsuarios = () => {
@@ -17,7 +17,7 @@ const MostrarUsuarios = () => {
   const abrirEditar = (usuario) => {
     setUsuarioEditar(usuario);
   };
-
+    
   const guardarCambios = async () => {
     setUsuarios(
       usuarios.map((u) => (u.id === usuarioEditar.id ? usuarioEditar : u))
@@ -37,9 +37,11 @@ const MostrarUsuarios = () => {
     console.log(peticion);
   };
 
-  const eliminarUsuario = (id) => {
+  const eliminarUsuario = async(id) => {
     setUsuarios(usuarios.filter((u) => u.id !== id));
-  };
+    const peticion = await deleteDatos(`usuarios/eliminar-usuario`, id);
+    console.log(peticion);
+  }
 
   return (
     <div className="usuarios-main">

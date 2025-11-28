@@ -3,11 +3,16 @@ import "../Estilos/Admin.css";
 import { useNavigate } from "react-router-dom";
 import CrearActividad from "./CrearActividad";
 import MostrarUsuarios from "./MostrarUsuarios";
+import MostrarActividades from "./ActividadesAdmin";
+
 
 function Admin() {
   const navigate = useNavigate();
   const [crearActividad, setCrearActividad] = useState(true);
   const [mostrarUsuarios, setMostrarUsuarios] = useState(false);
+  const [mostrarActividades, setMostrarActividades] = useState(false);
+  const [mostrarActividadesAgendadas, setMostrarActividadesAgendadas] = useState(false);
+
   return (
     <div>
       <div className="sidebar">
@@ -16,6 +21,7 @@ function Admin() {
             onClick={() => {
               setCrearActividad(true);
               setMostrarUsuarios(false);
+              setMostrarActividades(false);
             }}
         >
           <i
@@ -28,12 +34,20 @@ function Admin() {
           onClick={() => {
             setMostrarUsuarios(true);
             setCrearActividad(false);
+            setMostrarActividades(false);
+
           }}
         >
           <i className="fa fa-table me-2"></i> Usuarios
         </a>
-        <a>
-          <i className="fa fa-cubes me-2"></i> Eventos
+        <a 
+          onClick={() => {
+            setMostrarActividades(true);
+            setCrearActividad(false);
+            setMostrarUsuarios(false);
+          }}
+        >
+          <i className="fa fa-cubes me-2"></i> Ver actividades
         </a>
         <a>
           <i className="fa fa-file-alt me-2"></i> Comentarios
@@ -58,6 +72,11 @@ function Admin() {
         <div className="row">{crearActividad && <CrearActividad />}</div>
 
         <div className="row">{mostrarUsuarios && <MostrarUsuarios />}</div>
+
+        <div className="row">{mostrarActividades && <MostrarActividades />}</div>
+
+      
+
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Usuario,Paciente,Psicologo
 from .serializers import UsuarioSerializer,PacienteSerializer,PsicologoSerializer
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView,DestroyAPIView
 from rest_framework.views import APIView
 from django.contrib.auth import authenticate
 from rest_framework.response import Response
@@ -78,5 +78,8 @@ class EditarUsuarioView(APIView):
         return Response({"mensaje":"Usuario actualizado con éxito"})
 
 
-
+class EliminarUsuarioView(DestroyAPIView):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
+    lookup_field = "id"
 

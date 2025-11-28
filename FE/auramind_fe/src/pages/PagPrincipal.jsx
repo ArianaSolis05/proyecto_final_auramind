@@ -31,6 +31,11 @@ function PagPrincipal() {
     traerProfesionles()
   },[])
 
+  const formatearFecha = (fecha) => {
+    const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(fecha).toLocaleDateString(undefined, opciones);
+  }
+
   return (
     <div>
     
@@ -43,7 +48,7 @@ function PagPrincipal() {
             key={actividad.id}
             nombre_actividad={actividad.nombre_actividad}
             descripcion={actividad.descripcion}
-            fecha={actividad.fecha}
+            fecha={formatearFecha(actividad.fecha)}
             className="card"
           />
         ))}
