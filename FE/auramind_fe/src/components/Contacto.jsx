@@ -1,9 +1,85 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Estilos/Contacto.css";
 
 function Contacto() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
   return (
-    <div>
+    <div className="contacto-page">
+
+      {/* NAVBAR */}
+      <header className="navbar-container"> {/* AGREGADO */}
+        <div className="navbar-logo">AURAMIND</div> {/* AGREGADO */}
+
+        <nav className={`navbar-links ${menuOpen ? "open" : ""}`}>
+          <a
+            href="pagPrincipal"
+            className="nav-link"
+            onClick={() => (false)}
+          >
+            Inicio
+          </a>
+
+          <a
+            className="nav-link"
+            onClick={() => {
+              navigate("/Usuario");
+              setMenuOpen(false);
+            }}
+          >
+            Perfil
+          </a>
+
+          <a
+            href="#acerca"
+            className="nav-link"
+            onClick={() => {
+              navigate("/AcercaAuramind");
+              setMenuOpen(false);
+            }}
+          >
+            Acerca de AuraMind
+          </a>
+
+          <a
+            href="#contacto"
+            className="nav-link"
+            onClick={() => {
+              navigate("/Contacto");
+              setMenuOpen(false);
+            }}
+          >
+            Contacto
+          </a>
+
+          <a
+            href="#agendar"
+            className="nav-link"
+            onClick={() => {
+              navigate("/AgendarCitas");
+              setMenuOpen(false);
+            }}
+          >
+            Agendar Cita
+          </a>
+
+          <button
+            onClick={() => {
+              navigate("/crear-usuario");
+              setMenuOpen(false);
+            }}
+            className="navbar-button"
+          >
+            Registrarse
+          </button>
+        </nav>
+      </header>
+
+      <div className="navbar-divider"></div> {/* AGREGADO - línea celeste */}
+
+      {/* CONTENIDO DEL CONTACTO */}
       <div className="contacto-container">
         <h2 className="contacto-titulo">Contáctanos</h2>
 
@@ -40,10 +116,7 @@ function Contacto() {
 
           <input type="text" placeholder="Tu nombre" required />
           <input type="email" placeholder="Tu correo" required />
-          <textarea
-            placeholder="Escribe tu mensaje aquí..."
-            required
-          ></textarea>
+          <textarea placeholder="Escribe tu mensaje aquí..." required></textarea>
 
           <button type="submit">Enviar</button>
         </form>

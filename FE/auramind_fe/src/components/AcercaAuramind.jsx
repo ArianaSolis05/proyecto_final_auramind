@@ -4,7 +4,12 @@ import { useNavigate } from "react-router-dom";
 function AcercaAuramind() {
   const navigate = useNavigate();
   return (
+
+    
+
     <div className="about-wrapper">
+
+      
 
       <section className="about-hero">
         <h1>Sobre AuraMind</h1>
