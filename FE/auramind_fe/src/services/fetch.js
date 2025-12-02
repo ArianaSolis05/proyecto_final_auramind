@@ -50,7 +50,7 @@ async function patchDatos(endpoint,obj) {
     console.log(consultas);
     return consultas;
   } catch (error) {
-    console.log("Error al editar");
+    console.log("Error al editar",error);
   }
 }
 
