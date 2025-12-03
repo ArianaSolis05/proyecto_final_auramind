@@ -62,12 +62,13 @@ async function deleteDatos(endpoint, id) {
       {
         method: "DELETE",
         headers: {
-          "Content-type": "application/json",
+          "Content-Type": "application/json",
         },
       }
     );
 
     const borrarDatos = await response.json();
+    console.log(borrarDatos);
     return borrarDatos;
   } catch (error) {
     console.error("Error al eliminar dato");

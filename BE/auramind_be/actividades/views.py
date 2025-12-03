@@ -1,9 +1,9 @@
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, DestroyAPIView
 from rest_framework.views import APIView
-
+from rest_framework.response import Response
 from .models import Actividad
 from .serializers import ActividadSerializer
-
+from rest_framework.permissions import IsAdminUser
 
 class ActividadCreateView(ListCreateAPIView):
     queryset = Actividad.objects.all()
@@ -19,7 +19,7 @@ class EditarActividadView(APIView):
         tipo = request.data.get("tipo")
         ubicacion = request.data.get("ubicacion")
 
-        actividad = Actividad.objects.filter(id=id_actividad)
+        actividad = Actividad.objects.filter(id=id_actividad).first()
 
         if nombre_actividad:
             actividad.nombre_actividad = nombre_actividad
@@ -33,3 +33,11 @@ class EditarActividadView(APIView):
             actividad.ubicacion = ubicacion
 
         actividad.save()
+
+        return Response({"mensaje":"Actividad actualizada correctamente"})
+
+class EliminarActividadView(DestroyAPIView):
+    permission_classes = [IsAdminUser]
+    queryset = Actividad.objects.all()
+    serializer_class = ActividadSerializer
+    lookup_field = "id"

@@ -1,6 +1,6 @@
 import "../Estilos/ActividadesAdmin.css";
 import { useEffect, useState } from "react";
-import { getData } from "../services/fetch";
+import { deleteDatos, getData, patchDatos } from "../services/fetch";
 
 const MostrarActividades = () => {
   const [actividades, setActividades] = useState([]);
@@ -25,8 +25,26 @@ const MostrarActividades = () => {
     traerActividades();
   }, []);
   const guardarCambios = async () => {
+    const actividadId = localStorage.getItem("idActividadEditar");
+    const activiadActualizar = {
+      nombre_actividad: actividadEditar.nombre_actividad,
+      descripcion: actividadEditar.descripcion,
+      fecha: actividadEditar.fecha,
+      id_actividad: actividadId,
+    }
+    const peticion = await patchDatos(`actividades/editar-actividad`, activiadActualizar);
+    console.log(peticion);
+    
+    setActividadEditar(null);
+    // const peticion = await patchDatos("editar-actividad/", actividadEditar);
 
-  }
+    }
+    const eliminarActividad = async (id) =>{
+       await deleteDatos("actividades/eliminar-actividad", id);
+       console.log(deleteDatos);
+       
+    }
+
   return (
     <div className="usuarios-main">
       <h1 className="titulo">Actividades Registrados</h1>
@@ -53,7 +71,7 @@ const MostrarActividades = () => {
 
               <button
                 className="btn pastel-eliminar"
-                onClick={() => eliminarUsuario(usuario.id)}
+                onClick={() => eliminarActividad(actividad.id)}
               >
                 🗑 Eliminar
               </button>
@@ -65,7 +83,7 @@ const MostrarActividades = () => {
       {actividadEditar && (
         <div className="modal-fondo">
           <div className="modal">
-            <h2>Editar Usuario</h2>
+            <h2>Editar Actividad</h2>
 
             <label>Nombre Actividad:</label>
             <input
@@ -84,7 +102,7 @@ const MostrarActividades = () => {
               type="text"
               value={actividadEditar.descripcion}
               onChange={(e) =>
-                setUsuarioEditar({
+                setActividadEditar({
                   ...actividadEditar,
                   descripcion: e.target.value,
                 })

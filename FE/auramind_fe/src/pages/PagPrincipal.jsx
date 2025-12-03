@@ -8,6 +8,7 @@ import CardActividades from '../components/CardActividades'
 import CardProfesional from '../components/CardProfesional'
 import Menu from '../components/Menu'
 import { getData } from '../services/fetch'
+import Header from '../components/Header';
 
 function PagPrincipal() {
   const [listaActividades,setListaActividades] = useState([])
@@ -39,7 +40,7 @@ function PagPrincipal() {
   return (
     <div>
     
-      <Home/>
+      <Header/>
 
       <h1 className="seccion-title">Actividades</h1>
       <div className="seccion-cards">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../Estilos/Citas.css";
 import { useNavigate } from "react-router-dom";
 import { postDatos } from "../services/fetch.js";
+import Header from "./Header.jsx";
 
 function Citas() {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ function Citas() {
 
   return (
     <div>
+      <Header />
       <section className="form-container">
         <h1>Agendar una cita</h1>
 

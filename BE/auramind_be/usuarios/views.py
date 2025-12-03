@@ -44,7 +44,7 @@ class UsuarioLoginView(APIView):
                              "idUsuario":usuario_login.id,
                              "acceso":str(token.access_token),
                              "rol":usuario_login.rol,
-                             "refresh":str(token)})
+                             "refresh":str(token)}) 
         else:
             return Response({"mensaje":"JEJE NONONO"})
 
