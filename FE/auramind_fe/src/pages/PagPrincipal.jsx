@@ -41,7 +41,7 @@ function PagPrincipal() {
     <div>
     
       <Header/>
-
+      <Home/>
       <h1 className="seccion-title">Actividades</h1>
       <div className="seccion-cards">
         {listaActividades.map((actividad)=>(

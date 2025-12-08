@@ -18,7 +18,6 @@ function EditUsuario() {
     telefono: "",
   });
 
-  // Obtener datos del usuario
   useEffect(() => {
     async function traeUsuario() {
       const res = await getData(
@@ -28,14 +27,12 @@ function EditUsuario() {
       const usuario = res[0];
       setInfoUsuario(usuario);
 
-      // Llenamos formData con los datos del usuario
       setFormData(usuario);
     }
 
     traeUsuario();
   }, []);
 
-  // Manejo de cambios en inputs
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -43,13 +40,12 @@ function EditUsuario() {
     });
   };
 
-  // Guardar cambios
   async function handleEdit(e) {
     e.preventDefault();
 
     const ObjUser = {
       id_usuario: localStorage.getItem("idUsuario"),
-      ...formData, // enviamos los datos actualizados
+      ...formData, 
     };
 
     const peticion = await patchDatos("usuarios/actualizar-usuario", ObjUser);

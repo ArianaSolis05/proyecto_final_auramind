@@ -1,6 +1,4 @@
-/* -------------------------
-   CONTENEDOR GENERAL
-------------------------- */
+
 .about-wrapper {
   max-width: 900px;
   margin: 0 auto;
@@ -10,9 +8,7 @@
   animation: fadeIn 0.7s ease;
 }
 
-/* -------------------------
-   HERO
-------------------------- */
+
 .about-hero {
   text-align: center;
   background: linear-gradient(135deg, #bdd9fa, #dcd4ff);
@@ -34,9 +30,7 @@
   opacity: 0.85;
 }
 
-/* -------------------------
-   SECCIONES
-------------------------- */
+
 .about-section {
   margin-top: 25px;
   background: #ffffff;
@@ -45,7 +39,6 @@
   box-shadow: 0 4px 14px rgba(0,0,0,0.06);
 }
 
-/* Animación leve al aparecer */
 .fade-section {
   animation: slideUp 0.7s ease;
 }
@@ -57,9 +50,7 @@
   font-weight: 600;
 }
 
-/* -------------------------
-   TARJETAS GRANDES
-------------------------- */
+
 .about-card {
   background: #f7f4ff;
   padding: 18px 20px;
@@ -68,9 +59,7 @@
   line-height: 1.6;
 }
 
-/* -------------------------
-   GRID DE MINI CARDS
-------------------------- */
+
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -102,9 +91,7 @@
   opacity: 0.85;
 }
 
-/* -------------------------
-   ANIMACIONES
-------------------------- */
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

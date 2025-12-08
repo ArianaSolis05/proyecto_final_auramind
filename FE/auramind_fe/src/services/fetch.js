@@ -63,6 +63,7 @@ async function deleteDatos(endpoint, id) {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${localStorage.getItem("token")}`
         },
       }
     );

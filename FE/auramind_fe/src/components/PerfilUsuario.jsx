@@ -64,7 +64,6 @@ const PerfilUsuario = () => {
             </div>
           </aside>
 
-          {/* --- PANEL DERECHO --- */}
           <main className="perfil-detalles">
             <div className="perfil-card">
               <h3>🌿 Metas personales</h3>

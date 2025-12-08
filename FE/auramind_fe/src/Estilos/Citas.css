@@ -2,31 +2,37 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Segoe UI", sans-serif;
-    background-color: #f4f5f7;
-    color: #333;
+    background: #f0f7f8; 
+    color: #2c3e50;
 }
 
+
 .form-container {
-    max-width: 700px;
-    background: #fff;
-    margin: 60px auto;
-    padding: 40px 50px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    max-width: 720px;
+    background: #ffffff;
+    margin: 70px auto;
+    padding: 45px 55px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    border: 1px solid #dceeee;
 }
+
 
 h1 {
     text-align: center;
     margin-bottom: 40px;
-    font-size: 32px;
-    color: #1a1a1a;
+    font-size: 34px;
+    color: #2f6f73; 
+    letter-spacing: 1px;
 }
+
 
 .appointment-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 25px;
+    gap: 28px;
 }
+
 
 .form-group {
     display: flex;
@@ -37,22 +43,34 @@ h1 {
     grid-column: span 2;
 }
 
+
 label {
     font-weight: 600;
     margin-bottom: 8px;
-    color: #444;
-}
-
-input, select, textarea {
-    padding: 12px 14px;
-    border-radius: 6px;
-    border: 1.5px solid #ccc;
+    color: #2f6f73;
     font-size: 15px;
-    transition: border-color 0.3s ease;
 }
 
-input:focus, select:focus, textarea:focus {
-    border-color: #2962ff;
+
+input,
+select,
+textarea {
+    resize: vertical;
+    min-height: 20px;  
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 2px solid #c7e5e7;
+    background: #f8fcfc;
+    font-size: 15px;
+    transition: 0.25s ease;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2f8f8e;
+    box-shadow: 0 0 8px rgba(47, 143, 142, 0.25);
     outline: none;
 }
 
@@ -60,29 +78,33 @@ textarea {
     resize: vertical;
 }
 
+
 .btn-enviar {
     grid-column: span 2;
-    padding: 14px;
-    font-size: 16px;
+    padding: 15px;
+    font-size: 17px;
     font-weight: 600;
     border: none;
-    background-color: #2962ff;
+    background: #2f8f8e; 
     color: white;
-    border-radius: 6px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: 0.25s ease;
     margin-top: 10px;
 }
 
 .btn-enviar:hover {
-    background-color: #1e47b8;
+    background: #277c7a;
+    transform: translateY(-2px);
 }
+
 
 @media (max-width: 600px) {
     .appointment-form {
         grid-template-columns: 1fr;
     }
-    .btn-enviar, .full-width {
+    .btn-enviar, 
+    .full-width {
         grid-column: span 1;
     }
 }

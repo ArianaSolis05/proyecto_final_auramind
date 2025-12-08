@@ -14,6 +14,8 @@ import PerfilAdmin from "../pages/PerfilAdmin";
 import AgregarActividad from "../pages/AgregarActividad";
 import ContactoAuramind from "../pages/ContactoAuramind";
 import AgendarCitas from "../pages/AgendarCitas";
+import ForoUsuario from "../pages/ForoUsuario";
+
 
 
 
@@ -37,6 +39,9 @@ const Routing = () => {
         <Route path="/Contacto" element={<ContactoAuramind />} />
         <Route path="/CrearActividad" element={<AgregarActividad/>} />
         <Route path="/AgendarCitas" element={<AgendarCitas/>} />
+        <Route path="/Foro" element={<ForoUsuario/>} />
+        
+
       </Routes>
     </Router>
   );

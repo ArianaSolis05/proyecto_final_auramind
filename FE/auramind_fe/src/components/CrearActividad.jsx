@@ -25,6 +25,7 @@ function CrearActividad() {
 
     };
     await postDatos(objActividad, "actividades/crear-actividad/");
+    alert("Actividad agregada con éxito");
   }
   return (
     <div className="formulario-contenedor">
@@ -47,7 +48,7 @@ function CrearActividad() {
           name="hora"
           placeholder="Descripción"
           onChange={(e) => setFecha(e.target.value)}
-        />
+        /> 
          <input
           type="text"
           name="hora"

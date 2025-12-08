@@ -8,14 +8,13 @@ function Contacto() {
   const navigate = useNavigate();
 
   return (
+    <>
+
+       <Header/>
     <div className="contacto-page">
 
-      {/* NAVBAR */}
-       <Header/>
 
-      <div className="navbar-divider"></div> {/* AGREGADO - línea celeste */}
 
-      {/* CONTENIDO DEL CONTACTO */}
       <div className="contacto-container">
         <h2 className="contacto-titulo">Contáctanos</h2>
 
@@ -58,6 +57,7 @@ function Contacto() {
         </form>
       </div>
     </div>
+    </>
   );
 }
 

@@ -1,79 +1,4 @@
-/* ------------------------------ */
-/* GENERAL */
-/* ------------------------------ */
 
-.contacto-page {
-  background: #f4fafa;
-  min-height: 100vh;
-  font-family: "Poppins", sans-serif;
-}
-
-/* ------------------------------ */
-/* NAVBAR COMO EN LA IMAGEN */
-/* ------------------------------ */
-
-.navbar-container {
-  width: 100%;
-  padding: 28px 40px;  /* ← AUMENTADO (antes 20px) */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  box-sizing: border-box;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.navbar-logo {
-  font-size: 24px; /* más grande */
-  font-weight: bold;
-  color: #2f6f73;
-  letter-spacing: 2px;
-}
-
-.navbar-links {
-  display: flex;
-  align-items: center;
-  gap: 34px; /* un poquito más de espacio */
-}
-
-.nav-link {
-  text-decoration: none;
-  font-size: 16px;
-  color: #555;
-  transition: 0.2s;
-}
-
-.nav-link:hover {
-  color: #2f6f73;
-}
-
-/* Botón Registrarse */
-.navbar-button {
-  background: #2f8f8e;
-  color: white;
-  border: none;
-  padding: 11px 26px;
-  border-radius: 22px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.2s;
-}
-
-.navbar-button:hover {
-  background: #277c7a;
-}
-
-/* Línea celeste debajo del navbar */
-.navbar-divider {
-  width: 100%;
-  height: 6px;
-  background: #b6dada;
-  margin-bottom: 40px;
-}
-
-/* ------------------------------ */
-/* CONTENIDO CONTACTO */
-/* ------------------------------ */
 
 .contacto-container {
   max-width: 900px;
@@ -111,9 +36,7 @@
   text-align: center;
 }
 
-/* ------------------------------ */
-/* FORMULARIO */
-/* ------------------------------ */
+
 
 .contacto-form {
   background: #f0f8f8;

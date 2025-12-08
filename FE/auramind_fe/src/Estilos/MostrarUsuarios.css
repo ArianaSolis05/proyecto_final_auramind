@@ -1,6 +1,5 @@
-/* === CONTENEDOR PRINCIPAL === */
 .usuarios-main {
-  background: #f4fafc; /* azul pastel muy claro */
+  background: #f4fafc; 
   padding: 50px;
   min-height: 100vh;
   font-family: 'Inter', sans-serif;
@@ -16,7 +15,6 @@
 }
 
 
-/* === LISTA DE USUARIOS === */
 .usuarios-lista {
   display: flex;
   flex-wrap: wrap;
@@ -25,7 +23,6 @@
 }
 
 
-/* === TARJETA ESTILO NUEVO === */
 .tarjeta {
   width: 290px;
   background: #ffffff;
@@ -59,7 +56,7 @@
 
 .rol {
   font-size: 13px;
-  background: #d9e9ff; /* celeste suave */
+  background: #d9e9ff; 
   color: #2d4c76;
   padding: 5px 18px;
   border-radius: 20px;
@@ -67,7 +64,6 @@
 }
 
 
-/* === BOTONES NUEVO ESTILO === */
 .acciones {
   width: 100%;
   display: flex;
@@ -85,7 +81,6 @@
   transition: 0.25s ease;
 }
 
-/* Botón editar: verde pastel */
 .pastel-editar {
   background: #d8f7e2;
   color: #255f3a;
@@ -95,7 +90,6 @@
   background: #c1f2d2;
 }
 
-/* Botón eliminar: coral pastel */
 .pastel-eliminar {
   background: #ffe0d9;
   color: #8b3b32;
@@ -106,7 +100,6 @@
 }
 
 
-/* === MODAL === */
 .modal-fondo {
   position: fixed;
   top: 0;
@@ -149,7 +142,6 @@
 }
 
 
-/* INPUTS NUEVO DISEÑO */
 .modal input,
 .select-rol {
   width: 100%;
@@ -169,7 +161,6 @@
 }
 
 
-/* BOTONES DEL MODAL */
 .modal-btns {
   display: flex;
   gap: 15px;
@@ -178,7 +169,7 @@
 
 .pastel-guardar {
   flex: 1;
-  background: #e4ffe2; /* verde menta pastel */
+  background: #e4ffe2; 
   color: #2e6432;
 }
 
@@ -188,7 +179,7 @@
 
 .pastel-cerrar {
   flex: 1;
-  background: #fff3d9; /* amarillo pastel */
+  background: #fff3d9; 
   color: #8b751d;
 }
 

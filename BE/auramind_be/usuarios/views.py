@@ -48,7 +48,6 @@ class UsuarioLoginView(APIView):
         else:
             return Response({"mensaje":"JEJE NONONO"})
 
-
 class EditarUsuarioView(APIView):
     def patch(self,request):
         id_usuario = request.data.get("id_usuario")

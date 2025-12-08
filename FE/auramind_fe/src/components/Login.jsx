@@ -20,19 +20,24 @@ function Login() {
         nombre_usuario: usuario,
         clave_usuario: password,
       }),
+
     });
 
     const data = await respuesta.json();
     console.log(data);
+    console.log("aolalal");
     
     if (data.rol == "admin") {
       localStorage.setItem("rol", data.rol)
       localStorage.setItem("idUsuario", data.idUsuario)
+      localStorage.setItem("token", data.acceso)
+
       navigate("/admin")
       return;
     } else {
       localStorage.setItem("rol", data.rol)
       localStorage.setItem("idUsuario", data.idUsuario)
+      localStorage.setItem("token", data.acceso)
       navigate("/PagPrincipal");
       return;
     }
