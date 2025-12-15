@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { postDatos } from "../services/fetch.js";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../Estilos/Login.css";
 
@@ -11,35 +10,60 @@ function Login() {
   const navigate = useNavigate();
 
   async function iniciarSesion() {
-    const respuesta = await fetch(`http://127.0.0.1:8000/usuarios/login/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        nombre_usuario: usuario,
-        clave_usuario: password,
-      }),
+    setMensaje("");
 
-    });
+    if (!usuario || !password) {
+      setMensaje("Por favor ingresa todos los campos.");
+      return;
+    }
 
-    const data = await respuesta.json();
-    console.log(data);
-    console.log("aolalal");
+    try {
+      const respuesta = await fetch(`http://127.0.0.1:8000/usuarios/login/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nombre_usuario: usuario,
+          clave_usuario: password,
+        }),
+      });
+
+      if (!respuesta.ok) {
+        setMensaje("Error en el servidor. Intenta más tarde.");
+        return;
+      }
+
+      const data = await respuesta.json();
+      console.log(data);
+
+      if (data.mensaje === "JEJE NONONO") {
+        alert("Usuario o contraseña incorrectos.");
+        return;
+      }
+
+      if (!data.rol) {
+        setMensaje("Credenciales incorrectas.");
+        return;
+      }
+
+      
+      localStorage.setItem("rol", data.rol);
+      localStorage.setItem("idUsuario", data.idUsuario);
+      localStorage.setItem("token", data.acceso);
+
     
-    if (data.rol == "admin") {
-      localStorage.setItem("rol", data.rol)
-      localStorage.setItem("idUsuario", data.idUsuario)
-      localStorage.setItem("token", data.acceso)
+      if (data.rol === "admin") {
+        navigate("/admin");
+      } else if (data.rol === "paciente") {
+        navigate("/PagPrincipal");
+      }else if (data.rol === "psicologo"){
+        navigate("/PagPrincipal");
+      }
 
-      navigate("/admin")
-      return;
-    } else {
-      localStorage.setItem("rol", data.rol)
-      localStorage.setItem("idUsuario", data.idUsuario)
-      localStorage.setItem("token", data.acceso)
-      navigate("/PagPrincipal");
-      return;
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+      setMensaje("No se pudo conectar al servidor.");
     }
   }
 
@@ -90,7 +114,12 @@ function Login() {
           </p>
         </form>
       </div>
-      <p style={{ textAlign: "center", color: "white" }}>{mensaje}</p>
+
+      {mensaje && (
+        <p style={{ textAlign: "center", color: "white", marginTop: "10px" }}>
+          {mensaje}
+        </p>
+      )}
     </div>
   );
 }

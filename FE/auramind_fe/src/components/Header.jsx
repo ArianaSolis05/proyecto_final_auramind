@@ -68,6 +68,12 @@ const Header = () => {
             >
               Foro
             </a>
+            <a
+              className="nav-link"
+              onClick={() => navigate("/mis-citas")}
+            >
+              Mis citas
+            </a>
 
             <button
               onClick={() => {

@@ -4,30 +4,27 @@ import { useNavigate } from "react-router-dom";
 import CrearActividad from "./CrearActividad";
 import MostrarUsuarios from "./MostrarUsuarios";
 import MostrarActividades from "./ActividadesAdmin";
-
+import MostrarForo from "./MostrarForo";
 
 function Admin() {
   const navigate = useNavigate();
   const [crearActividad, setCrearActividad] = useState(true);
   const [mostrarUsuarios, setMostrarUsuarios] = useState(false);
   const [mostrarActividades, setMostrarActividades] = useState(false);
-  const [mostrarActividadesAgendadas, setMostrarActividadesAgendadas] = useState(false);
+  const [mostrarForo, setMostrarForo] = useState(false);
 
   return (
     <div>
       <div className="sidebar">
         <h3 className="p-3">AuraMind</h3>
         <a
-            onClick={() => {
-              setCrearActividad(true);
-              setMostrarUsuarios(false);
-              setMostrarActividades(false);
-            }}
+          onClick={() => {
+            setCrearActividad(true);
+            setMostrarUsuarios(false);
+            setMostrarActividades(false);
+          }}
         >
-          <i
-            className="fa fa-chart-bar me-2"
-          
-          ></i>
+          <i className="fa fa-chart-bar me-2"></i>
           Crear Actividad
         </a>
         <a
@@ -35,12 +32,11 @@ function Admin() {
             setMostrarUsuarios(true);
             setCrearActividad(false);
             setMostrarActividades(false);
-
           }}
         >
           <i className="fa fa-table me-2"></i> Usuarios
         </a>
-        <a 
+        <a
           onClick={() => {
             setMostrarActividades(true);
             setCrearActividad(false);
@@ -49,11 +45,14 @@ function Admin() {
         >
           <i className="fa fa-cubes me-2"></i> Ver actividades
         </a>
-        <a>
-          <i className="fa fa-file-alt me-2"></i> Comentarios
-        </a>
-        <a>
-          <i className="fa fa-file-alt me-2"></i> Configuracion
+        <a
+          onClick={() => {
+            setMostrarForo(true);
+            setCrearActividad(false);
+            setMostrarUsuarios(false);
+          }}
+        >
+          <i className="fa fa-file-alt me-2"></i> Foro
         </a>
         <a
           onClick={() => {
@@ -73,10 +72,13 @@ function Admin() {
 
         <div className="row">{mostrarUsuarios && <MostrarUsuarios />}</div>
 
-        <div className="row">{mostrarActividades && <MostrarActividades />}</div>
+        <div className="row">
+          {mostrarActividades && <MostrarActividades />}
+        </div>
 
-      
-
+        <div className="row">
+          {mostrarForo && <MostrarForo />}
+        </div>
       </div>
     </div>
   );

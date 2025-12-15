@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'citas',
     'actividades',
     'rest_framework_simplejwt',
+    'foro'
     
 ]
 

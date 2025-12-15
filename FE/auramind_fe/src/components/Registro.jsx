@@ -15,6 +15,7 @@ function Registro() {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [mensaje, setMensaje] = useState("");
+  const [telefono, setTelefono] = useState("");
 
   const navigate = useNavigate();
   const fechaActual = new Date();
@@ -39,7 +40,7 @@ function Registro() {
       first_name: nombre,
       last_name: apellido,
       rol: "paciente",
-      telefono: "2000"
+      telefono: telefono,
     };
     const respuesta = await postDatos(newUser, "usuarios/crear-usuario/");
     setMensaje("Su registro de usuario fue exitoso");
@@ -136,6 +137,14 @@ function Registro() {
             className="register-input"
             value={apellido}
             onChange={(e) => setApellido(e.target.value)}
+          />
+
+          <label className="register-label">Telefono</label>
+          <input
+            type="number"
+            className="register-input"
+            value={telefono}
+            onChange={(e) => setTelefono(e.target.value)}
           />
 
           <button

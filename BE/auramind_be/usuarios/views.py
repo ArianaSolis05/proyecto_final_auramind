@@ -58,6 +58,7 @@ class EditarUsuarioView(APIView):
         telefono = request.data.get("telefono")        
         usuario = Usuario.objects.filter(id=id_usuario).first()
         genero = request.data.get("genero")
+        rol = request.data.get("rol")
 
         if username:
             usuario.username = username
@@ -71,6 +72,8 @@ class EditarUsuarioView(APIView):
             usuario.telefono = telefono
         if genero:
             usuario.genero = genero
+        if rol:
+            usuario.rol = rol
 
         usuario.save()
 

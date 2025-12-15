@@ -6,5 +6,6 @@ urlpatterns = [
     path("usuarios/",include("usuarios.urls")),
     path("citas/",include("citas.urls")),
     path("actividades/",include("actividades.urls")),
+    path("foro/",include("foro.urls"))
 ]
 

@@ -1,0 +1,115 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: #ffffff;
+  width: 420px;
+  padding: 20px 22px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #777;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.modal-icon {
+  color: #22c55e;
+  font-size: 18px;
+}
+
+.modal-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.modal-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.modal-label {
+  font-size: 13px;
+  color: #666;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.modal-link-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.modal-link-box input {
+  flex: 1;
+  border: none;
+  padding: 8px 10px;
+  font-size: 13px;
+  outline: none;
+}
+
+.copy-btn {
+  background: #f3f4f6;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btn-cancel {
+  background: transparent;
+  border: 1px solid #ccc;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-done {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-done:hover {
+  background: #4f46e5;
+}

@@ -1,6 +1,6 @@
 import "../Estilos/CardProfesional.css";
 
-const CardProfesional = ({ especialidad, descripcion, nombre }) => {
+const CardProfesional = ({ especialidad, descripcion, nombre, verMas }) => {
   return (
     <div>
       <div className="card-profesional">
@@ -10,6 +10,7 @@ const CardProfesional = ({ especialidad, descripcion, nombre }) => {
         <p className="card-especialidad">{especialidad}</p>
         <p className="card-descripcion">{descripcion}</p>
         <p className="card-nombre">{nombre}</p>
+        <button onClick={verMas} className="btn-verMas">Ver más</button>
       </div>
     </div>
   );

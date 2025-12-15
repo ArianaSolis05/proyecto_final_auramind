@@ -7,7 +7,6 @@
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
   font-family: "Segoe UI", sans-serif;
 }
-
 .foro-titulo {
   font-size: 28px;
   margin-bottom: 25px;
@@ -76,4 +75,8 @@
 .ultimo-tiempo {
   font-size: 13px;
   color: #6a7f9e;
+}
+
+.comentario{
+  border: 1px solid #d8e7fa;
 }

@@ -15,10 +15,8 @@ import AgregarActividad from "../pages/AgregarActividad";
 import ContactoAuramind from "../pages/ContactoAuramind";
 import AgendarCitas from "../pages/AgendarCitas";
 import ForoUsuario from "../pages/ForoUsuario";
-
-
-
-
+import MisCitas from "../pages/MisCitas";
+import Recuperacion from "../pages/Recuperacion";
 
 const Routing = () => {
   return (
@@ -40,8 +38,9 @@ const Routing = () => {
         <Route path="/CrearActividad" element={<AgregarActividad/>} />
         <Route path="/AgendarCitas" element={<AgendarCitas/>} />
         <Route path="/Foro" element={<ForoUsuario/>} />
+        <Route path="/mis-citas" element={<MisCitas/>} />
+        <Route path="/recuperar" element={<Recuperacion/>}/>
         
-
       </Routes>
     </Router>
   );

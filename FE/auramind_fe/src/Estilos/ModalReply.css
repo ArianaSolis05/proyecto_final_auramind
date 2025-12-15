@@ -1,0 +1,91 @@
+.mr-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.mr-modal {
+  background: #fff;
+  width: min(420px, 92%);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.mr-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mr-close {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.mr-content {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mr-comment-box {
+  background: #f3f8ff;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d7e6ff;
+}
+
+.mr-author {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.mr-text {
+  font-size: 14px;
+  color: #374151;
+}
+
+.mr-input {
+  width: 100%;
+  min-height: 110px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  resize: vertical;
+  font-size: 14px;
+}
+
+.mr-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.mr-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.mr-btn.cancel {
+  background: #e2e8f0;
+}
+
+.mr-btn.send {
+  background: #0ea5e9;
+  color: white;
+}

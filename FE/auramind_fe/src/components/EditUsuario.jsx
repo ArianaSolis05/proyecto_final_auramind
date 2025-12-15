@@ -58,7 +58,7 @@ function EditUsuario() {
 
   return (
     <div className="modal-editar-usuario">
-      <div className="formulario">
+      <div className="formulario">  
         <h2>Editar Usuario</h2>
 
         <form onSubmit={handleEdit}>
