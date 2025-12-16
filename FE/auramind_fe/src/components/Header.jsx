@@ -28,6 +28,18 @@ const Header = () => {
               Perfil
             </a>
 
+
+            {localStorage.getItem("rol") === "admin" && (
+               <a
+              className="nav-link"
+              onClick={() => {
+                navigate("/admin");
+              }}
+            >
+              Admin
+            </a>
+            )}
+
             <a
               href="#acerca"
               className="nav-link"
@@ -75,7 +87,19 @@ const Header = () => {
               Mis citas
             </a>
 
-            <button
+            {localStorage.getItem("idUsuario") ? (
+                 <button
+              onClick={() => {
+                navigate("/PagPrincipal");
+                localStorage.clear()
+                
+              }}
+              className="navbar-button"
+            >
+              Cerrar sesión
+            </button>
+            ):(
+   <button
               onClick={() => {
                 navigate("/crear-usuario");
                 setMenuOpen(false);
@@ -84,6 +108,8 @@ const Header = () => {
             >
               Registrarse
             </button>
+            )}
+         
           </nav>
         </header>
 

@@ -1,11 +1,11 @@
 import "../Estilos/CardProfesional.css";
 
-const CardProfesional = ({ especialidad, descripcion, nombre, verMas }) => {
+const CardProfesional = ({ especialidad, descripcion, nombre, verMas,img }) => {
   return (
     <div>
       <div className="card-profesional">
         <div className="card-img">
-          <img src="" alt="" />
+          <img src={img} alt="" />
         </div>
         <p className="card-especialidad">{especialidad}</p>
         <p className="card-descripcion">{descripcion}</p>

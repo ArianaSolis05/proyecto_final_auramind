@@ -7,3 +7,4 @@ class Actividad(models.Model):
     fecha = models.DateTimeField()
     tipo = models.CharField(max_length=30)
     ubicacion = models.TextField()
+    img_actividad = models.TextField(null=True,blank=True)

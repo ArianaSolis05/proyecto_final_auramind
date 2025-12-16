@@ -3,10 +3,14 @@ import "../Estilos/PerfilUsuario.css";
 import { Link } from "react-router-dom";
 import { deleteDatos, getData } from "../services/fetch";
 import Header from "./Header";
+import EditarComentarioModal from "./EditarComentarioModal";
 
 const PerfilUsuario = () => {
   const [usuario, setUsuario] = useState([]);
   const [comentarios, setComentarios] = useState([]);
+  const [comentarioSeleccionado,setComentarioSeleccionado] = useState(null)
+  const [mostrarModalEditar,setMostrarModalEditar] = useState(false)
+
   useEffect(() => {
     async function traerUsuario() {
       const data = await getData(
@@ -40,7 +44,7 @@ const PerfilUsuario = () => {
           <aside className="perfil-sidebar">
             <div className="perfil-imagen-container">
               <img
-                src={usuario.imagen}
+                src={usuario.img_perfil}
                 alt="Foto de perfil"
                 className="perfil-imagen"
               />
@@ -82,7 +86,6 @@ const PerfilUsuario = () => {
             <div className="perfil-card">
               <h3>🌿 Tus comentarios</h3>
               <div className="comentarios-lista">
-                {/* Aquí se listarían los comentarios del usuario */}
                 {comentarios.length === 0 &&(
                 <p>Aún no has realizado comentarios.</p>
                 )}
@@ -93,10 +96,19 @@ const PerfilUsuario = () => {
                       {new Date(comentario.fecha_publicacion).toLocaleDateString()}
                     </span>
                     <button onClick={eliminarForo}>Eliminar</button>
+                    <button
+                      onClick = {()=>{
+                         setMostrarModalEditar(true)
+                         setComentarioSeleccionado(comentario)
+                      }}
+                    
+                    >Editar</button>
                   </div>
                 ))}
               </div>
-
+                  {mostrarModalEditar && (
+                    <EditarComentarioModal isOpen={mostrarModalEditar} onClose={()=>setMostrarModalEditar(false)} tituloInicial={comentarioSeleccionado.titulo} contenidoInicial={comentarioSeleccionado.contenido}/>
+                  )}
             
             </div>
 

@@ -56,6 +56,14 @@ function Admin() {
         </a>
         <a
           onClick={() => {
+            navigate("/PagPrincipal")  
+          }}
+        >
+          <i className="fa fa-file-alt me-2"></i> Página principal
+        </a>
+
+        <a
+          onClick={() => {
             navigate("/");
             localStorage.clear();
           }}
@@ -76,9 +84,7 @@ function Admin() {
           {mostrarActividades && <MostrarActividades />}
         </div>
 
-        <div className="row">
-          {mostrarForo && <MostrarForo />}
-        </div>
+        <div className="row">{mostrarForo && <MostrarForo />}</div>
       </div>
     </div>
   );

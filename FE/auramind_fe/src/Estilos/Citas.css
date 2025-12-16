@@ -108,3 +108,25 @@ textarea {
         grid-column: span 1;
     }
 }
+/* Motivo de cita - rectángulo grande */
+.motivo-cita {
+    width: 197%;
+    height: 10px;              /* rectángulo grande */
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 2px solid #c7e5e7;
+    background: #f8fcfc;
+    font-size: 15px;
+    line-height: 1.6;
+    resize: none;               /* fijo */
+    overflow-y: auto;           /* scroll vertical */
+    text-align: left;           /* texto desde arriba */
+    vertical-align: top;
+}
+
+/* Focus */
+.motivo-cita:focus {
+    border-color: #2f8f8e;
+    box-shadow: 0 0 8px rgba(47, 143, 142, 0.25);
+    outline: none;
+}

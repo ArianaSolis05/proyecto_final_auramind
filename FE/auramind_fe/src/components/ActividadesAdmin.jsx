@@ -1,6 +1,7 @@
 import "../Estilos/ActividadesAdmin.css";
 import { useEffect, useState } from "react";
 import { deleteDatos, getData, patchDatos } from "../services/fetch";
+import ImageUploader from "./ImageUploader";
 
 const MostrarActividades = () => {
   const [actividades, setActividades] = useState([]);
@@ -23,7 +24,8 @@ const MostrarActividades = () => {
       setActividades(peticion);
     }
     traerActividades();
-  }, []);
+  }, [actividades]);
+
   const guardarCambios = async () => {
     const actividadId = localStorage.getItem("idActividadEditar");
     const activiadActualizar = {
@@ -40,8 +42,8 @@ const MostrarActividades = () => {
 
     }
     const eliminarActividad = async (id) =>{
-       await deleteDatos("actividades/eliminar-actividad", id);
-       console.log(deleteDatos);
+       const peticion = await deleteDatos("actividades/eliminar-actividad", id);
+       console.log(peticion);
        
     }
 
@@ -53,11 +55,11 @@ const MostrarActividades = () => {
         {actividades.map((actividad) => (
           <div className="tarjeta" key={actividad.id}>
             <h2 className="nombre">{actividad.nombre_actividad}</h2>
+            <img src={actividad.img_actividad} width={300}/>
             <p className="descripciono">{actividad.descripcion}</p>
             <p className="fecha">{formatofecha(actividad.fecha)}</p>
             <p className="tipo">{actividad.tipo}</p>
             <p className="ubicacion">{actividad.ubicacion}</p>
-
             <div className="acciones">
               <button
                 className="btn pastel-editar"

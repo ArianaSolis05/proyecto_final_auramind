@@ -45,16 +45,6 @@ function Contacto() {
             <p>Lunes a Sábado · 8:00am – 6:00pm</p>
           </div>
         </div>
-
-        <form className="contacto-form">
-          <h3 className="form-titulo">Envíanos un mensaje</h3>
-
-          <input type="text" placeholder="Tu nombre" required />
-          <input type="email" placeholder="Tu correo" required />
-          <textarea placeholder="Escribe tu mensaje aquí..." required></textarea>
-
-          <button type="submit">Enviar</button>
-        </form>
       </div>
     </div>
     </>

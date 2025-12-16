@@ -29,6 +29,7 @@ export default function ActividadModal({ isOpen, onClose,nombreActividad,descrip
     
         <label className="modal-label">{ubicacion}</label>
 
+        
     
         <div className="modal-actions">
           <button className="btn-cancel" onClick={onClose}>

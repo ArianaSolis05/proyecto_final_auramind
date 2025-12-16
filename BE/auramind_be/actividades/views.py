@@ -35,9 +35,10 @@ class EditarActividadView(APIView):
         actividad.save()
 
         return Response({"mensaje":"Actividad actualizada correctamente"})
+from rest_framework.permissions import IsAuthenticated
 
 class EliminarActividadView(DestroyAPIView):
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated]
     queryset = Actividad.objects.all()
     serializer_class = ActividadSerializer
     lookup_field = "id"

@@ -1,10 +1,12 @@
 import "../Estilos/Actividades.css";
 
-const CardActividades = ({ nombre_actividad,descripcion,fecha,verMas}) => {
+const CardActividades = ({ nombre_actividad,descripcion,fecha,verMas,img}) => {
   return (
         <div className="card">
           <p className="saludo">hola</p>
-          <div className="img-container"></div>
+          <div className="img-container">
+            <img src={img} alt=""  srcset="" />
+          </div>
           <p className="card-titulo">{nombre_actividad}</p>
           <button onClick={verMas} className="btn-verMas">Ver más</button>
         </div>

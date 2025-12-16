@@ -5,7 +5,7 @@ from .models import Usuario,Paciente,Psicologo
 class UsuarioSerializer(ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ["id","username","email","password","email","fecha_nacimiento","cedula","nacionalidad","genero","first_name","last_name","rol","telefono"]
+        fields = ["id","username","email","password","email","fecha_nacimiento","cedula","nacionalidad","genero","first_name","last_name","rol","telefono","img_perfil"]
 
     def create(self,validated_data):
         clave = validated_data.pop("password")

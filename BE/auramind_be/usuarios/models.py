@@ -14,6 +14,7 @@ class Usuario(AbstractUser):
     genero = models.CharField(max_length=30)
     rol = models.CharField(choices=ROL_OPCIONES, max_length=30)
     telefono = models.CharField(max_length=20)
+    img_perfil = models.TextField(null=True,blank=True,max_length=200)
 
 
 class Psicologo(models.Model):

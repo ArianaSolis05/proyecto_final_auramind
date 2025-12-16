@@ -56,6 +56,7 @@ function PagPrincipal() {
         {listaActividades.map((actividad)=>(
           <CardActividades
             key={actividad.id}
+            img={actividad.img_actividad}
             nombre_actividad={actividad.nombre_actividad}
             descripcion={actividad.descripcion}
             fecha={formatearFecha(actividad.fecha)}
@@ -81,6 +82,7 @@ function PagPrincipal() {
             nombre_actividad={Psicologo.especialidad}
             descripcion={Psicologo.descripcion}
             nombre={Psicologo.username}
+            img={Psicologo.img_perfil || "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png"}
             className="card"
             verMas={()=>{
               setMostrarModalPsicologo(true)

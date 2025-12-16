@@ -4,7 +4,7 @@ import Header from "./Header";
 import { getData, postDatos } from "../services/fetch";
 import ModalReply from "./ModalReply";
 
-function  Foro() {
+function Foro() {
   const [titulo, setTitulo] = useState("");
   const [contenido, setContenido] = useState("");
   const [comentarios, setComentarios] = useState([]);
@@ -14,9 +14,6 @@ function  Foro() {
 
   const [mostrarModalReply, setMostrarModalReply] = useState(false);
 
-  // ===========================
-  //     POST - Subir comentario
-  // ===========================
   async function subirComentario() {
     const comentario = {
       titulo: titulo,
@@ -24,17 +21,12 @@ function  Foro() {
       usuario: localStorage.getItem("idUsuario"),
     };
 
-    const peticion = await postDatos(comentario, "foro/crear-comentario/");
-    console.log(peticion);
-
+    await postDatos(comentario, "foro/crear-comentario/");
     setTitulo("");
     setContenido("");
     cargarComentarios();
   }
 
-  // ===========================
-  // OBTENER LISTA DE COMENTARIOS
-  // ===========================
   async function cargarComentarios() {
     try {
       const respuesta = await getData(`foro/crear-comentario/`);
@@ -44,9 +36,6 @@ function  Foro() {
     }
   }
 
-  // ===============================
-  // OBTENER RESPUESTAS DE UN FORO
-  // ===============================
   async function obtenerRespuestas(id_foro) {
     try {
       const respuesta = await getData(`foro/respuestas-foro/${id_foro}/`);
@@ -59,17 +48,12 @@ function  Foro() {
     }
   }
 
-  // ===============================
-  // ABRIR / CERRAR RESPUESTAS
-  // ===============================
   function toggleRespuestas(idForo) {
-    // Guardar id en localStorage
     localStorage.setItem("idForo", idForo);
 
     setRespuestasAbiertas((prev) => {
       const nuevoEstado = !prev[idForo];
 
-      // Si se está abriendo y no se han cargado respuestas aún
       if (nuevoEstado && !respuestas[idForo]) {
         obtenerRespuestas(idForo);
       }
@@ -81,7 +65,6 @@ function  Foro() {
     });
   }
 
-  // Cargar comentarios al iniciar
   useEffect(() => {
     cargarComentarios();
   }, []);
@@ -95,7 +78,7 @@ function  Foro() {
           <h2 className="foro-titulo">Foros de la Comunidad</h2>
 
           {/* CREAR COMENTARIO */}
-          <div className="foro-categoria">
+          <div className="foro-categoria crear-comentario">
             <div className="cat-info">
               <div className="icon">💬</div>
               <div>
@@ -125,19 +108,24 @@ function  Foro() {
             <h3>Comentarios Recientes</h3>
 
             {comentarios.map((comentario) => (
-              <div className="comentario" key={comentario.id}>
+              <div
+                className="comentario comentario-card"
+                key={comentario.id}
+              >
                 <h4>{comentario.titulo}</h4>
                 <p>{comentario.contenido}</p>
 
-                {/* BOTÓN VER / OCULTAR RESPUESTAS */}
-                <button onClick={() => toggleRespuestas(comentario.id)}>
+                <button
+                  className="btn-respuestas"
+                  onClick={() => toggleRespuestas(comentario.id)}
+                >
                   {respuestasAbiertas[comentario.id]
                     ? "Ocultar respuestas"
                     : "Ver respuestas"}
                 </button>
 
-                {/* BOTÓN RESPONDER */}
                 <button
+                  className="btn-responder"
                   onClick={() => {
                     setMostrarModalReply(true);
                     localStorage.setItem("idForo", comentario.id);
@@ -146,13 +134,15 @@ function  Foro() {
                   Responder
                 </button>
 
-                {/* RESPUESTAS DEL FORO */}
                 {respuestasAbiertas[comentario.id] && (
                   <div className="lista-respuestas">
                     {respuestas[comentario.id] ? (
                       respuestas[comentario.id].length > 0 ? (
                         respuestas[comentario.id].map((r) => (
-                          <div key={r.id} className="respuesta">
+                          <div
+                            key={r.id}
+                            className="respuesta respuesta-item"
+                          >
                             <p>{r.contenido}</p>
                             <small>Usuario: {r.usuario_nombre}</small>
                           </div>

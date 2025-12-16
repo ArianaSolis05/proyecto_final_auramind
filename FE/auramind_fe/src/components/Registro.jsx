@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { postDatos } from "../services/fetch.js";
 import { useNavigate, Link } from "react-router-dom";
 import "../Estilos/Registro.css";
+import ImageUploader from "./ImageUploader.jsx";
 
 function Registro() {
   const [user, setUser] = useState("");
@@ -14,21 +15,25 @@ function Registro() {
   const [genero, setGenero] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
-  const [mensaje, setMensaje] = useState("");
   const [telefono, setTelefono] = useState("");
+  const [mensaje, setMensaje] = useState("");
+
+  // 👇 IMAGEN DE PERFIL
+  const [imgPerfil, setImgPerfil] = useState("");
 
   const navigate = useNavigate();
-  const fechaActual = new Date();
 
   async function registroExitoso() {
-    if (nombre == "" || email === "" || password === "") {
+    if (nombre === "" || email === "" || password === "") {
       setMensaje("Llene los espacios por favor");
       return;
     }
-    if (password != confirmpassword) {
+
+    if (password !== confirmpassword) {
       setMensaje("Las contraseñas deben ser iguales");
       return;
     }
+
     const newUser = {
       username: user,
       email: email,
@@ -41,23 +46,26 @@ function Registro() {
       last_name: apellido,
       rol: "paciente",
       telefono: telefono,
+      img_perfil: imgPerfil, 
     };
+
     const respuesta = await postDatos(newUser, "usuarios/crear-usuario/");
-    setMensaje("Su registro de usuario fue exitoso");
     console.log(respuesta);
+
+    setMensaje("Su registro de usuario fue exitoso");
     navigate("/");
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      setMensaje("");
-    }, 1500);
+    const timer = setTimeout(() => setMensaje(""), 1500);
+    return () => clearTimeout(timer);
   }, [mensaje]);
 
   return (
     <div className="register-wrapper">
       <div className="register-container">
         <h2 className="register-title">Registro de Usuario</h2>
+
         <form className="register-form">
           <label className="register-label">Nombre de Usuario</label>
           <input
@@ -138,7 +146,7 @@ function Registro() {
             value={apellido}
             onChange={(e) => setApellido(e.target.value)}
           />
-
+    
           <label className="register-label">Telefono</label>
           <input
             type="number"
@@ -147,20 +155,24 @@ function Registro() {
             onChange={(e) => setTelefono(e.target.value)}
           />
 
+          <ImageUploader onUploadSuccess={setImgPerfil} />
+
           <button
             type="button"
             className="register-btn"
             onClick={registroExitoso}
+            disabled={!imgPerfil} // opcional
           >
             Registrarse
           </button>
+
           <p>{mensaje}</p>
-          <Link to={"/"} className="register-link">
+
+          <Link to="/" className="register-link">
             Ir a inicio
           </Link>
         </form>
       </div>
-      <p className="register-message">{mensaje}</p>
     </div>
   );
 }

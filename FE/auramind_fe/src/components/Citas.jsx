@@ -55,7 +55,7 @@ function Citas() {
           </div>
           <div className="form-group">
             <label for="fecha">Motivo cita</label>
-            <input
+            <input className="motivo-cita"
               type="text"
               onChange={(e) => setMotivoCita(e.target.value)}
             />
