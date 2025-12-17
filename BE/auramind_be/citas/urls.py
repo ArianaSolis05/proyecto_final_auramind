@@ -1,9 +1,11 @@
 from django.urls import path
-from .views import CitasCreateView,CitasPorUsuarioView,CitasPorPsicologoView
+from .views import CitasCreateView,CitasPorUsuarioView,CitasPorPsicologoView,EliminarCitasView
+
 
 urlpatterns = [
     path("crear-citas/",CitasCreateView.as_view()),
     path("citas-usuario/<int:id_usuario>/",CitasPorUsuarioView.as_view()),
     path("citas-psicologo/<int:id_psicologo>/",CitasPorPsicologoView.as_view()),
+    path("eliminar-citas/<int:id_cita>/",EliminarCitasView.as_view())
 ]
 

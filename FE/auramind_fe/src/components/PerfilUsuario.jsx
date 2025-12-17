@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../Estilos/PerfilUsuario.css";
 import { Link } from "react-router-dom";
-import { deleteDatos, getData } from "../services/fetch";
+import { deleteDatos, getData, getDataAutenticado } from "../services/fetch";
 import Header from "./Header";
 import EditarComentarioModal from "./EditarComentarioModal";
 
@@ -13,7 +13,7 @@ const PerfilUsuario = () => {
 
   useEffect(() => {
     async function traerUsuario() {
-      const data = await getData(
+      const data = await getDataAutenticado(
         `usuarios/usuario/${localStorage.getItem("idUsuario")}/`
       );
       setUsuario(data[0]);
@@ -36,6 +36,24 @@ const PerfilUsuario = () => {
         setForo(foro.filter((f) => f.id !== id));
         console.log(peticion);
     } 
+
+    function calcularEdad(fechaNacimiento) {
+  const hoy = new Date();
+  const nacimiento = new Date(fechaNacimiento);
+
+  let edad = hoy.getFullYear() - nacimiento.getFullYear();
+  const mes = hoy.getMonth() - nacimiento.getMonth();
+
+  if (
+    mes < 0 ||
+    (mes === 0 && hoy.getDate() < nacimiento.getDate())
+  ) {
+    edad--;
+  }
+
+  return edad;
+}
+
   return (
     <>
       <Header />
@@ -58,13 +76,10 @@ const PerfilUsuario = () => {
 
             <div className="perfil-info">
               <p>
-                <strong>Edad:</strong> {usuario.edad}
+                <strong>Edad:</strong> {calcularEdad(usuario.fecha_nacimiento)}
               </p>
               <p>
                 <strong>Ciudad:</strong> {usuario.nacionalidad}
-              </p>
-              <p>
-                <strong>Estado emocional:</strong>
               </p>
               <p>
                 <strong>Género:</strong>

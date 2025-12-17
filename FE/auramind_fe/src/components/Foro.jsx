@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../Estilos/Foro.css";
 import Header from "./Header";
-import { getData, postDatos } from "../services/fetch";
+import { getData, getDataAutenticado, postDatos, postDatosAutenticado } from "../services/fetch";
 import ModalReply from "./ModalReply";
 
 function Foro() {
@@ -21,7 +21,7 @@ function Foro() {
       usuario: localStorage.getItem("idUsuario"),
     };
 
-    await postDatos(comentario, "foro/crear-comentario/");
+    await postDatosAutenticado(comentario, "foro/crear-comentario/");
     setTitulo("");
     setContenido("");
     cargarComentarios();
@@ -29,7 +29,7 @@ function Foro() {
 
   async function cargarComentarios() {
     try {
-      const respuesta = await getData(`foro/crear-comentario/`);
+      const respuesta = await getDataAutenticado(`foro/crear-comentario/`);
       setComentarios(respuesta);
     } catch (error) {
       console.error("Error al obtener los comentarios:", error);
@@ -38,7 +38,7 @@ function Foro() {
 
   async function obtenerRespuestas(id_foro) {
     try {
-      const respuesta = await getData(`foro/respuestas-foro/${id_foro}/`);
+      const respuesta = await getDataAutenticado(`foro/respuestas-foro/${id_foro}/`);
       setRespuestas((prev) => ({
         ...prev,
         [id_foro]: respuesta,

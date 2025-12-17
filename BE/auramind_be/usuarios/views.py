@@ -12,9 +12,11 @@ class UsuarioCreateView(ListCreateAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
 
+from rest_framework.permissions import IsAuthenticated
+
 class UsuarioPorIdView(ListCreateAPIView):
     serializer_class = UsuarioSerializer
-    
+    permission_classes = [IsAuthenticated]
     def get_queryset(self):
         id_usuario = self.kwargs["id_usuario"] # urls
         return Usuario.objects.filter(id=id_usuario)

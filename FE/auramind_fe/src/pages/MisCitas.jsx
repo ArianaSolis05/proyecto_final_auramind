@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getData } from "../services/fetch";
+import { deleteDatos, getData } from "../services/fetch";
 import Header from "../components/Header";
 const MisCitas = () => {
     const [tusCitas,setTusCitas] = useState([])
-
+    const [recarga,setRecarga] = useState(false)
     useEffect(()=>{
         const traerTusCitas = async()=>{
             if (localStorage.getItem("rol") == "paciente") {
@@ -17,9 +17,17 @@ const MisCitas = () => {
                 return
             }
         }
-        traerTusCitas()
-    },[])
 
+       
+        traerTusCitas()
+    },[recarga])
+
+
+    async function eliminarCita(id) {
+        const peticion = await deleteDatos(`citas/eliminar-citas`,id)
+        console.log(peticion);
+        setRecarga(true)
+    }
     return(
         <>
         <Header/>
@@ -31,6 +39,11 @@ const MisCitas = () => {
                     <h3>Psicologo: {cita.psicologo_nombre}</h3>
                     <p>Motivo: {cita.motivo}</p>
                     <p>Fecha y hora: {new Date(cita.fecha_hora).toLocaleString()}</p>
+                    <button
+                        onClick={()=>{
+                            eliminarCita(cita.id)
+                        }}
+                    >Eliminar Cita</button>
                 </div>
                 )
             )})}

@@ -17,23 +17,59 @@ async function postDatos(obj, endpoint) {
 }
 
 
-async function getData(endpoint) {
-    try {
-        const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`,{
-            method: 'GET',
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        })   
-        const respuesta = await peticion.json()
-        console.log(respuesta);
-        return respuesta
-    } catch (error) {
-        console.error(error);
-    }
+async function postDatosAutenticado(obj, endpoint) {
+  try {
+    const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem('token')}`
+
+      },
+      body: JSON.stringify(obj),
+    });
+    const respuesta = await peticion.json();
+    console.log(respuesta);
+    return respuesta;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-async function patchDatos(endpoint,obj) {
+
+async function getData(endpoint) {
+  try {
+    const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const respuesta = await peticion.json()
+    console.log(respuesta);
+    return respuesta
+  } catch (error) {
+    console.error(error);
+  }
+}
+async function getDataAutenticado(endpoint) {
+  try {
+    const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+    const respuesta = await peticion.json()
+    console.log(respuesta);
+    return respuesta
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function patchDatos(endpoint, obj) {
   try {
     const response = await fetch(
       `http://127.0.0.1:8000/${endpoint}/`,
@@ -50,7 +86,7 @@ async function patchDatos(endpoint,obj) {
     console.log(consultas);
     return consultas;
   } catch (error) {
-    console.log("Error al editar",error);
+    console.log("Error al editar", error);
   }
 }
 
@@ -76,4 +112,4 @@ async function deleteDatos(endpoint, id) {
   }
 }
 
-export { postDatos, getData, patchDatos, deleteDatos };
+export { postDatos, getData, patchDatos, deleteDatos, getDataAutenticado,postDatosAutenticado };

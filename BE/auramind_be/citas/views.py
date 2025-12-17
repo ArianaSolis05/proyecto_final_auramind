@@ -21,3 +21,10 @@ class CitasPorPsicologoView(ListCreateAPIView):
     def get_queryset(self):
         id_psicologo = self.kwargs["id_psicologo"] 
         return Citas.objects.filter(psicologo=id_psicologo)
+    
+from rest_framework.generics import DestroyAPIView
+
+class EliminarCitasView(DestroyAPIView):
+    serializer_class = CitasSerializer
+    queryset = Citas.objects.all()
+    lookup_field = "id_cita"

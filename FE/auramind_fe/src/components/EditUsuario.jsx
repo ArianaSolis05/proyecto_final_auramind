@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../Estilos/editUsuario.css";
-import { patchDatos, getData } from "../services/fetch.js";
+import { patchDatos, getData, getDataAutenticado } from "../services/fetch.js";
 import { useNavigate } from "react-router-dom";
 
 function EditUsuario() {
@@ -20,7 +20,7 @@ function EditUsuario() {
 
   useEffect(() => {
     async function traeUsuario() {
-      const res = await getData(
+      const res = await getDataAutenticado(
         `usuarios/usuario/${localStorage.getItem("idUsuario")}/`
       );
 

@@ -101,12 +101,12 @@ const Header = () => {
             ):(
    <button
               onClick={() => {
-                navigate("/crear-usuario");
+                navigate("/");
                 setMenuOpen(false);
               }}
               className="navbar-button"
             >
-              Registrarse
+              Iniciar Sesión
             </button>
             )}
          

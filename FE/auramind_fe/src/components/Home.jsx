@@ -21,7 +21,6 @@ function Home() {
               nuestra <br />
               plataforma de apoyo psicológico
             </h1>
-            <button className="home-button">Obtener Ayuda</button>
           </div>
 
           

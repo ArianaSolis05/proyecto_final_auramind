@@ -2,17 +2,22 @@ from .models import Foro,Respuesta
 from .serializers import ForoSerializer,RespuestaSerializer
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.generics import DestroyAPIView
+from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
 
 class ForoCreateView(ListCreateAPIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = Foro.objects.all()
     serializer_class = ForoSerializer
 
 class RespuestaCreateView(ListCreateAPIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = Respuesta.objects.all()
     serializer_class = RespuestaSerializer
 
 
 class RespuestasPorForoView(ListCreateAPIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
     serializer_class = RespuestaSerializer
     
     def get_queryset(self):

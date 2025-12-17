@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../Estilos/ModalReply.css";
-import { postDatos, getData  } from "../services/fetch";
+import { postDatos, getData, postDatosAutenticado  } from "../services/fetch";
 
 export default function ModalReply({ isOpen, onClose}) {
   const [reply, setReply] = useState("");
@@ -30,7 +30,7 @@ export default function ModalReply({ isOpen, onClose}) {
             usuario: localStorage.getItem("idUsuario"), 
             contenido: reply
         }
-        const peticion = await postDatos(objRespuesta,"foro/crear-respuesta/")
+        const peticion = await postDatosAutenticado(objRespuesta,"foro/crear-respuesta/")
       setReply("");
       onClose();
     } catch {

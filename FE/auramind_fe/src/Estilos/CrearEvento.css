@@ -1,19 +1,19 @@
 .formulario-contenedor {
-  max-width: 440px;
-  margin: 130px auto;
-  padding: 30px 35px;
+  max-width: 460px;
+  margin: 140px auto;
+  padding: 32px 38px;
   background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #d9ecee;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  border: 1px solid #d7ecee;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
   font-family: "Inter", sans-serif;
   position: relative;
   bottom: 120px;
 }
 
 .formulario-contenedor h2 {
-  margin-bottom: 25px;
-  font-size: 24px;
+  margin-bottom: 28px;
+  font-size: 25px;
   font-weight: 700;
   color: #2f6f73;
   text-align: center;
@@ -22,39 +22,48 @@
 .formulario-evento {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
 .formulario-evento input {
-  padding: 13px 15px;
+  padding: 14px 16px;
   border: 2px solid #cfe8ea;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 15px;
-  background: #f8fcfc;
+  background: #f7fbfc;
   color: #2f3e46;
-  transition: 0.25s ease;
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+.formulario-evento input::placeholder {
+  color: #8aa5a8;
 }
 
 .formulario-evento input:focus {
   border-color: #2f8f8e;
   background-color: #ffffff;
-  box-shadow: 0 0 8px rgba(47, 143, 142, 0.25);
+  box-shadow: 0 0 0 3px rgba(47, 143, 142, 0.18);
   outline: none;
 }
 
+.formulario-evento input[type="date"] {
+  color: #2f3e46;
+  cursor: pointer;
+}
+
 .formulario-evento button {
-  padding: 13px;
+  padding: 14px;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   font-size: 15px;
   cursor: pointer;
-  transition: background-color 0.25s, transform 0.15s;
   font-weight: 600;
+  transition: background-color 0.25s ease, transform 0.15s ease;
 }
 
 .formulario-evento button:first-of-type {
   background: #2f8f8e;
-  color: white;
+  color: #ffffff;
 }
 
 .formulario-evento button:first-of-type:hover {
@@ -62,13 +71,20 @@
   transform: translateY(-2px);
 }
 
+.formulario-evento button:first-of-type:disabled {
+  background: #9fcfce;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .formulario-evento button:last-of-type {
-  background: #eaf4f4;
+  background: #eef7f7;
   color: #2f3e46;
   border: 1px solid #d2e8e8;
 }
 
 .formulario-evento button:last-of-type:hover {
-  background: #d7ecec;
+  background: #dbeeee;
   transform: translateY(-2px);
 }
+
